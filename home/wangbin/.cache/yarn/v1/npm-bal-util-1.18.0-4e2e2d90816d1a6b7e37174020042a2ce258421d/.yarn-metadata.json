@@ -1,0 +1,98 @@
+{
+  "manifest": {
+    "name": "bal-util",
+    "version": "1.18.0",
+    "description": "Common utility functions for Node.js used and maintained by Benjamin Lupton",
+    "homepage": "https://github.com/balupton/bal-util",
+    "keywords": [
+      "javascript",
+      "flow",
+      "control",
+      "async",
+      "sync",
+      "tasks",
+      "batch",
+      "utility",
+      "util",
+      "utilities",
+      "paths",
+      "path",
+      "events",
+      "event",
+      "module",
+      "modules",
+      "compare",
+      "comparison",
+      "html"
+    ],
+    "author": {
+      "name": "Benjamin Lupton",
+      "email": "b@lupton.cc",
+      "url": "http://balupton.com"
+    },
+    "maintainers": [
+      {
+        "name": "Benjamin Lupton",
+        "email": "b@lupton.cc",
+        "url": "https://github.com/balupton"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Benjamin Lupton",
+        "email": "b@lupton.cc",
+        "url": "https://github.com/balupton"
+      },
+      {
+        "name": "Sean Fridman",
+        "email": "fridman@mail.sfsu.edu",
+        "url": "https://github.com/sfrdmn"
+      }
+    ],
+    "bugs": {
+      "url": "https://github.com/balupton/bal-util/issues"
+    },
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/balupton/bal-util.git"
+    },
+    "engines": {
+      "node": ">=0.4"
+    },
+    "dependencies": {
+      "ambi": "~2.0.0",
+      "eachr": "~2.0.2",
+      "extendr": "~2.0.1",
+      "getsetdeep": "~2.0.0",
+      "safecallback": "~1.0.1",
+      "safefs": "~2.0.3",
+      "taskgroup": "~2.0.0",
+      "typechecker": "~2.0.1"
+    },
+    "devDependencies": {
+      "coffee-script": "~1.6.2",
+      "joe": "~1.1.2",
+      "chai": "~1.5.0"
+    },
+    "scripts": {
+      "test": "node ./out/test/everything-test.js --joe-reporter=list"
+    },
+    "main": "./out/lib/balutil",
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-bal-util-1.18.0-4e2e2d90816d1a6b7e37174020042a2ce258421d/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# Balupton's Utility Functions [![Build Status](https://secure.travis-ci.org/balupton/bal-util.png?branch=master)](http://travis-ci.org/balupton/bal-util)\nCommon utility functions for Node.js used and maintained by Benjamin Lupton\n\n\n\n## Install\n\n### Backend\n\n1. [Install Node.js](http://bevry.me/node/install)\n2. `npm install --save bal-util`\n\n### Frontend\n\n1. [See Browserify](http://browserify.org/)\n\n\n\n## Usage\nBest off looking at source, it's well documented, and there are plenty of tests\n\n\n\n## Future\nWe're in the process of abstracting the pieces of bal-util out into their own modules. So far, we've done the following:\n\n- [ambi](https://github.com/bevry/ambi) < `balUtilFlow.fireWithOptionalCallback`\n- [eachr](https://github.com/bevry/eachr) < `balUtilFlow.each`\n- [extendr](https://github.com/bevry/extendr) < `balUtilFlow.(extend|clone|etc)`\n- [getsetdeep](https://github.com/bevry/getsetdeep) < `balUtilFlow.(get|set)Deep`\n- [safeCallback](https://github.com/bevry/safecallback) < b`alUtilFlow.safeCallback`\n- [safefs](https://github.com/bevry/safefs) < `balUtilPaths.(openFile|closeFile|etc)`\n- [TaskGroup](https://github.com/bevry/taskgroup) < `balUtilFlow.Group`\n- [typeChecker](https://github.com/bevry/typechecker) < `balUtilTypes`\n\n\n\n## History\nYou can discover the history inside the [History.md](https://github.com/balupton/bal-util/blob/master/History.md#files) file\n\n\n\n## License\nLicensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://creativecommons.org/licenses/MIT/)\n<br/>Copyright © 2011+ [Benjamin Arthur Lupton](http://balupton.com)\n",
+    "licenseText": "(The MIT License)\n\nCopyright (c) 2011+ Benjamin Lupton <b@lupton.cc>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+    "license": "MIT"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/bal-util/-/bal-util-1.18.0.tgz#4e2e2d90816d1a6b7e37174020042a2ce258421d",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/bal-util/-/bal-util-1.18.0.tgz",
+    "hash": "4e2e2d90816d1a6b7e37174020042a2ce258421d",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "4e2e2d90816d1a6b7e37174020042a2ce258421d"
+}

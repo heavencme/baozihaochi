@@ -1,0 +1,59 @@
+{
+  "manifest": {
+    "name": "posthtml-render",
+    "version": "1.1.3",
+    "description": "Renders PostHTML Tree to HTML/XML",
+    "author": {
+      "name": "Ivan Voischev",
+      "email": "voischev.ivan@ya.ru"
+    },
+    "license": "MIT",
+    "main": "lib/index.js",
+    "files": [
+      "lib"
+    ],
+    "devDependencies": {
+      "chai": "^4.0.0",
+      "jsdoc-to-markdown": "^3.0.0",
+      "mocha": "^3.0.0",
+      "nyc": "^10.0.0",
+      "standard": "^10.0.0",
+      "standard-version": "^4.0.0"
+    },
+    "scripts": {
+      "lint": "standard --env mocha",
+      "test": "nyc node_modules/mocha/bin/_mocha",
+      "docs": "jsdoc2md lib/*.js > RENDER.md",
+      "release": "standard-version"
+    },
+    "keywords": [
+      "posthtml",
+      "render",
+      "html",
+      "xml"
+    ],
+    "bugs": {
+      "url": "https://github.com/posthtml/posthtml-render/issues"
+    },
+    "homepage": "https://github.com/posthtml/posthtml-render#readme",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/posthtml/posthtml-render.git"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-posthtml-render-1.1.3-53e91c3debd0e7443704efa299329e1e10867f0e/package.json",
+    "readmeFilename": "README.md",
+    "readme": "[![npm][npm]][npm-url]\n[![node][node]][node-url]\n[![deps][deps]][deps-url]\n[![tests][tests]][tests-url]\n[![coverage][cover]][cover-url]\n[![chat][chat]][chat-url]\n\n<div align=\"center\">\n  <a href=\"https://github.com/posthtml/posthtml\">\n    <img width=\"200\" height=\"200\" alt=\"PostHTML\"\n      src=\"http://posthtml.github.io/posthtml/logo.svg\">\n  </a>\n  <h1>PostHTML Render</h1>\n  <p>Renders a PostHTML Tree to HTML/XML</p>\n</div>\n\n<h2 align=\"center\">Install</h2>\n\n```bash\nnpm i -D posthtml-render\n```\n\n> ℹ️ This module is also available for [bower](http://bower.io) and as an AMD, CommonJS and IIFE (global) module, uncompressed and compressed\n\n<h2 align=\"center\">Usage</h2>\n\n### `NodeJS`\n\n```js\nconst render = require('posthtml-render')\n\nconst tree = []\n\nconst node = {}\n\nnode.tag = 'ul'\nnode.attrs = { class: 'list' }\nnode.content = [\n 'one',\n 'two',\n 'three'\n].map((content) => ({ tag: 'li', content }))\n\ntree.push(node)\n\nconst html = render(tree, options)\n\n```\n\n```html\n<ul class=\"list\">\n  <li>one</li>\n  <li>two</li>\n  <li>three</li>\n</ul>\n```\n\n### `🌐 Browser`\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>Title</title>\n  <script src=\"./node_modules/posthtml-render/lib/browser.min.js\"></script>\n  <script >\n    const tree = {\n      tag: 'h1',\n      attrs: {\n        style: 'color: red;'\n      },\n      content: [ 'Title' ]\n    }\n\n    window.onload = function () {\n      document.body.innerHTML = render(tree)\n    }\n  </script>\n</head>\n<body></body>\n</html>\n```\n\n<h2 align=\"center\">Options</h2>\n\n|Name|Type|Default|Description|\n|:--:|:--:|:-----:|:----------|\n|**[`singleTags`](#singletags)**|`{Array<String\\|RegExp>}`|`[]`|Specify custom single tags (self closing)|\n|**[`closingSingleTag`](#closingSingleTag)**|`{String}`|[`>`](#default)|Specify the single tag closing format|\n\n### `singleTags`\n\nSpecify custom single tags (self closing)\n\n### `{String}`\n\n```js\nconst render = require('posthtml-render')\n\nconst tree = [ { tag: 'name' } ]\nconst options = { singleTags: [ 'name' ] }\n\nconst html = render(tree, options)\n```\n\n**result.html**\n```html\n<name>\n```\n\n#### `{RegExp}`\n\n```js\nconst render = require('posthtml-render')\n\nconst tree = [ { tag: '%=title%' } ]\nconst options = { singleTags: [ '/^%.*%$/' ] }\n\nconst html = render(tree, options)\n```\n\n**result.html**\n```html\n<%=title%>\n```\n\n### `closingSingleTag`\n\nSpecify the single tag closing format\n\n#### `Formats`\n\n```js\nconst render = require('posthtml-render')\n\nconst tree = [ { tag: 'img' } ]\n```\n\n##### `'tag'`\n\n```js\nconst html = render(tree, { closingSingleTag: 'tag' })\n```\n\n```html\n<custom></custom>\n```\n\n##### `'slash'`\n\n```js\nconst html = render(tree, { closingSingleTag: 'tag' })\n```\n\n```html\n<custom />\n```\n\n##### `'default' (Default)`\n\n```js\nconst html = render(tree)\n```\n\n```html\n<img></img>\n```\n\n\n[npm]: https://img.shields.io/npm/v/posthtml-render.svg\n[npm-url]: https://npmjs.com/package/posthtml-render\n\n[node]: https://img.shields.io/node/v/posthtml-render.svg\n[node-url]: https://nodejs.org\n\n[deps]: https://david-dm.org/posthtml/posthtml-render.svg\n[deps-url]: https://david-dm.org/posthtml/posthtml-render\n\n[tests]: http://img.shields.io/travis/posthtml/posthtml-render.svg\n[tests-url]: https://travis-ci.org/posthtml/posthtml-render\n\n[cover]: https://coveralls.io/repos/github/posthtml/posthtml-render/badge.svg\n[cover-url]: https://coveralls.io/github/posthtml/posthtml-render\n\n[chat]: https://badges.gitter.im/posthtml/posthtml.svg\n[chat-url]: https://gitter.im/posthtml/posthtml\n",
+    "licenseText": "License (MIT)\n\nCopyright (c) 2017 Ivan Voischev <voischev.ivan@ya.ru>\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n'Software'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/posthtml-render/-/posthtml-render-1.1.3.tgz#53e91c3debd0e7443704efa299329e1e10867f0e",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/posthtml-render/-/posthtml-render-1.1.3.tgz",
+    "hash": "53e91c3debd0e7443704efa299329e1e10867f0e",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "53e91c3debd0e7443704efa299329e1e10867f0e"
+}

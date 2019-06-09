@@ -1,0 +1,73 @@
+{
+  "manifest": {
+    "name": "taskgroup",
+    "version": "2.0.0",
+    "description": "Group together synchronous and asynchronous tasks and execute them in either serial or parallel",
+    "homepage": "https://github.com/bevry/taskgroup",
+    "keywords": [
+      "flow",
+      "control",
+      "async",
+      "sync",
+      "tasks",
+      "batch"
+    ],
+    "author": {
+      "name": "Bevry Pty Ltd",
+      "email": "us@bevry.me",
+      "url": "http://bevry.me"
+    },
+    "maintainers": [
+      {
+        "name": "Benjamin Lupton",
+        "email": "b@lupton.cc",
+        "url": "https://github.com/balupton"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Benjamin Lupton",
+        "email": "b@lupton.cc",
+        "url": "https://github.com/balupton"
+      }
+    ],
+    "bugs": {
+      "url": "https://github.com/bevry/taskgroup/issues"
+    },
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/bevry/taskgroup.git"
+    },
+    "engines": {
+      "node": ">=0.4"
+    },
+    "dependencies": {
+      "typechecker": "~2.0.1",
+      "ambi": "~2.0.0"
+    },
+    "devDependencies": {
+      "coffee-script": "~1.6.2",
+      "joe": "~1.1.2"
+    },
+    "scripts": {
+      "test": "node ./out/test/taskgroup-test.js --joe-reporter=list"
+    },
+    "main": "./out/lib/taskgroup.js",
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-taskgroup-2.0.0-184944a42b5684aad751189a5263c030f6174446/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# Task Group [![Build Status](https://secure.travis-ci.org/bevry/taskgroup.png?branch=master)](http://travis-ci.org/bevry/taskgroup)\nGroup together synchronous and asynchronous tasks and execute them in either serial or parallel\n\n\n\n## Install\n\n### Backend\n\n1. [Install Node.js](http://bevry.me/node/install)\n2. `npm install --save taskgroup`\n\n### Frontend\n\n1. [See Browserify](http://browserify.org/)\n\n\n\n## Usage\n\n``` coffeescript\n# Import\nTaskGroup = require('taskgroup')\n\n# Add tasks to the group and fire them in parallel\ntasks = new TaskGroup (err,lastResult,results) -> console.log(err,lastResult,results)\ntasks.push (complete) ->\n\tsomeAsyncFunction(arg1, arg2, complete)\ntasks.push ->\n\tsomeSyncFunction(arg1, arg2)\ntasks.run()  # can also use tasks.run('parallel')\n\n# Add tasks to the group and fire them in serial\ntasks = new TaskGroup (err,lastResult,results) -> console.log(err,lastResult,results)\ntasks.push (complete) ->\n\tsomeAsyncFunction(arg1, arg2, complete)\ntasks.push ->\n\tsomeSyncFunction(arg1, arg2)\ntasks.run('serial')\n```\n\n\n## History\nYou can discover the history inside the [History.md](https://github.com/bevry/taskgroup/blob/master/History.md#files) file\n\n\n\n## License\nLicensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://creativecommons.org/licenses/MIT/)\n<br/>Copyright © 2013+ [Bevry Pty Ltd](http://bevry.me)\n<br/>Copyright © 2011-2012 [Benjamin Arthur Lupton](http://balupton.com)\n",
+    "licenseText": "(The MIT License)\n\nCopyright © 2013+ [Bevry Pty Ltd](http://bevry.me) <us@bevry.me>\nCopyright © 2011-2012 [Benjamin Lupton](http://balupton.com) <b@lupton.cc>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+    "license": "MIT"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/taskgroup/-/taskgroup-2.0.0.tgz#184944a42b5684aad751189a5263c030f6174446",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/taskgroup/-/taskgroup-2.0.0.tgz",
+    "hash": "184944a42b5684aad751189a5263c030f6174446",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "184944a42b5684aad751189a5263c030f6174446"
+}

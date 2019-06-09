@@ -1,0 +1,56 @@
+{
+  "manifest": {
+    "name": "downsize",
+    "version": "0.0.8",
+    "description": "Tag-safe truncation for HTML and XML. Works by word!",
+    "main": "index.js",
+    "scripts": {
+      "test": "mocha -R spec test.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/cgiffard/Downsize"
+    },
+    "keywords": [
+      "text",
+      "truncate",
+      "downsize",
+      "word",
+      "limit",
+      "character",
+      "html",
+      "xml",
+      "tag",
+      "safe"
+    ],
+    "author": {
+      "name": "Christopher Giffard"
+    },
+    "license": "BSD-3-Clause",
+    "dependencies": {
+      "xregexp": "2.0.0"
+    },
+    "devDependencies": {
+      "chai": "~1.5.0",
+      "mocha": "~1.9.0"
+    },
+    "readmeFilename": "README.md",
+    "bugs": {
+      "url": "https://github.com/cgiffard/Downsize/issues"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-downsize-0.0.8-21435a610c8c68220f5cc31474979b4d025f038e/package.json",
+    "readme": "# Downsize\n\nTag-safe HTML and XML text-truncation!\n\n```sh\nnpm install downsize\n```\n\n## Usage\n\n### Word-truncation\n\n```javascript\ndownsize(\"<p>some markup here...</p>\",{\"words\": 2});\n```\n\n```html\n<p>some markup</p>\n```\n\n### Character truncation\n\n```javascript\ndownsize(\"<p>some markup here...</p>\",{\"characters\": 6});\n```\n\n```html\n<p>some m</p>\n```\n\n### Appending an ellipsis\n\n```javascript\ndownsize(\"<p>some markup here...</p>\",{\"characters\": 6, \"append\": \"...\"});\n```\n\n```html\n<p>some m...</p>\n```\n\n### Rounding to the end of the paragraph\n\n```javascript\ndownsize(\"<p>Why, hello there!</p><p>Hello again!</p>\",{\"characters\": 6, round:true});\n```\n\n```html\n<p>Why, hello there!</p>\n```\n\n## Notes\n\nDownsize is designed to handle bad markup, and should count words and \ncharacters accurately in spite of it. But it won't hold your hand.\n\nIt does close outstanding open tags for you, but leaves erroneous close-tags \nfor which the opening tag couldn't be found or was erroneously nested.\n\n## Testing\n\n```sh\nnpm test\n```\n\n## Maintainers\n\n* [Christopher Giffard]([http://github.com/cgiffard)\n* [Adam Zethraeus]([http://github.com/zethraeus)\n\n[Thanks also to all the contributors!](https://github.com/cgiffard/Downsize/graphs/contributors)",
+    "licenseText": "Copyright (c) 2013, Christopher Giffard\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification,\nare permitted provided that the following conditions are met:\n\n  Redistributions of source code must retain the above copyright notice, this\n  list of conditions and the following disclaimer.\n\n  Redistributions in binary form must reproduce the above copyright notice, this\n  list of conditions and the following disclaimer in the documentation and/or\n  other materials provided with the distribution.\n\n  Neither the name of the {organization} nor the names of its\n  contributors may be used to endorse or promote products derived from\n  this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\nANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\nWARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR\nANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\nANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/downsize/-/downsize-0.0.8.tgz#21435a610c8c68220f5cc31474979b4d025f038e",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/downsize/-/downsize-0.0.8.tgz",
+    "hash": "21435a610c8c68220f5cc31474979b4d025f038e",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "21435a610c8c68220f5cc31474979b4d025f038e"
+}

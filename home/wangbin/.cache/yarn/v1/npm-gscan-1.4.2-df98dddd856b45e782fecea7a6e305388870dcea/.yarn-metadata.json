@@ -1,0 +1,89 @@
+{
+  "manifest": {
+    "name": "gscan",
+    "version": "1.4.2",
+    "description": "Scans Ghost themes looking for errors, deprecations, features and compatibility",
+    "keywords": [
+      "ghost",
+      "themes",
+      "validator",
+      "lint"
+    ],
+    "homepage": "https://ghost.org/",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:TryGhost/gscan.git"
+    },
+    "engine": {
+      "node": ">=6"
+    },
+    "bugs": {
+      "url": "https://github.com/TryGhost/gscan/issues"
+    },
+    "author": {
+      "name": "Ghost Foundation",
+      "email": "hello@ghost.org",
+      "url": "https://ghost.org"
+    },
+    "main": "lib",
+    "license": "MIT",
+    "scripts": {
+      "start": "node app/index.js",
+      "dev": "NODE_ENV=development DEBUG=gscan:* nodemon",
+      "test": "NODE_ENV=testing mocha -- $(find test -name '*.test.js')",
+      "coverage": "NODE_ENV=testing istanbul cover --dir test/coverage _mocha -- $(find test -name '*.test.js')",
+      "ship": "np --yolo",
+      "deploy": "shipit"
+    },
+    "bin": {
+      "gscan": "./bin/cli.js"
+    },
+    "dependencies": {
+      "bluebird": "^3.4.6",
+      "chalk": "^1.1.1",
+      "commander": "2.15.1",
+      "express": "^4.16.2",
+      "express-hbs": "^1.0.3",
+      "extract-zip": "^1.6.5",
+      "fs-extra": "^0.26.2",
+      "ghost-ignition": "2.9.2",
+      "glob": "^7.0.5",
+      "lodash": "4.17.10",
+      "multer": "^1.1.0",
+      "require-dir": "^0.3.2",
+      "semver": "^5.3.0",
+      "uuid": "^3.0.0",
+      "validator": "^6.3.0"
+    },
+    "devDependencies": {
+      "@tryghost/deploy": "0.0.2",
+      "istanbul": "^0.4.1",
+      "mocha": "^2.4.5",
+      "nodemon": "1.17.3",
+      "np": "2.20.1",
+      "rewire": "^2.5.2",
+      "should": "^7.1.0",
+      "sinon": "^1.17.5"
+    },
+    "files": [
+      "lib",
+      "bin",
+      "app"
+    ],
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-gscan-1.4.2-df98dddd856b45e782fecea7a6e305388870dcea/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# GScan\n\nChecks Ghost themes for errors, deprecations, best practices and looks to see which features are supported. \nAims to generate a compatibility report and feature listing for themes.\n\n## Usage\n\nThere are 3 ways to use gscan to validate your theme:\n\n### 1. Web usage\n\nVisit https://gscan.ghost.org and upload your zip to our online version of Gscan.\n\n### 2. CLI usage\n\nInstall using yarn / npm:\n\n`yarn global add gscan` /  `npm install -G gscan`\n\nTo run a local directory through the checks:\n\n`gscan /path/to/theme/directory`\n\nTo run a local zip file through the checks:\n\n`gscan /path/to/theme.zip -z`\n\n### 3. Lib usage\n\nInstall using yarn/npm and then:\n\n```js\nvar gscan = require('gscan');\n\ngscan.checkZip({\n    path: 'path-to-zip',\n    name: 'my-theme'\n}).then(function (result) {\n    console.log(result);\n}).catch(function(err) {\n    console.log(err);\n});\n```\n\n## Development\n\n### Run\n\n- Either dev mode: `yarn dev`\n- Or standard server: `yarn start`\n- View: http://localhost:2369\n\n### Publish\n\n(Core team only)\n\n- `yarn ship`\n- Or if you DGAF `yarn ship --yolo`  (skip yarn install, deploy local deps)\n\n## Result types:\n\n- Errors: these are issues which will cause your theme to not work properly. These must be fixed.\n- Warnings: these are usually related to deprecated features. These should be fixed.\n- Recommendations: these are advisories about best practice. Fixing these will improve your theme.\n- Features: detected features which may impact on compatibility. Nothing to do :)\n\n## Still To Do:\n\n- Support for running the checks against a GitHub repository\n- Many, many more checks\n- Detailed advice for each check/result\n- Compatibility report\n- Feature listing\n\n# Copyright & License\n\nCopyright (c) 2014-2018 Ghost Foundation - Released under the [MIT license](LICENSE). Ghost and the Ghost Logo are trademarks of Ghost Foundation Ltd. Please see our [trademark policy](https://ghost.org/trademark/) for info on acceptable usage.\n",
+    "licenseText": "Copyright (c) 2014-2018 Ghost Foundation\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without\nrestriction, including without limitation the rights to use,\ncopy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the\nSoftware is furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/gscan/-/gscan-1.4.2.tgz#df98dddd856b45e782fecea7a6e305388870dcea",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/gscan/-/gscan-1.4.2.tgz",
+    "hash": "df98dddd856b45e782fecea7a6e305388870dcea",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "df98dddd856b45e782fecea7a6e305388870dcea"
+}

@@ -1,0 +1,54 @@
+{
+  "manifest": {
+    "name": "bunyan-loggly",
+    "version": "1.3.3",
+    "description": "A bunyan stream to transport logs to loggly",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "keywords": [
+      "bunyan",
+      "log",
+      "loggly"
+    ],
+    "author": {
+      "name": "Maurice Butler",
+      "email": "maurice.butler@gmail.com"
+    },
+    "license": "MIT",
+    "dependencies": {
+      "json-stringify-safe": "^5.0.1",
+      "node-loggly-bulk": "^2.2.1"
+    },
+    "devDependencies": {
+      "@types/bunyan": "^1.8.3",
+      "proxyquire": "^1.7.4",
+      "tape": "^4.4.0"
+    },
+    "scripts": {
+      "test": "node ./tests"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/MauriceButler/bunyan-loggly.git"
+    },
+    "bugs": {
+      "url": "https://github.com/MauriceButler/bunyan-loggly/issues"
+    },
+    "homepage": "https://github.com/MauriceButler/bunyan-loggly#readme",
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-bunyan-loggly-1.3.3-8e0f03df7eab60d1761234be1aef4874bb915fa4/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# bunyan-loggly\n\nA bunyan stream to send logs through to loggly.\n\n## Configuration\n\nbunyan-loggly uses node-loggly under the hood. As such, when configuring bunyan-loggly as a stream for bunyan, you need to pass in the standard and required node-loggly configuration object.\n\nFor example:\n\n```javascript\n{\n\ttoken: \"your-really-long-input-token\",\n\tsubdomain: \"your-subdomain\"\n}\n```\n\n## Usage\n\nThis is a basic usage example.\n\n```javascript\nvar bunyan = require('bunyan');\nvar Bunyan2Loggly = require('bunyan-loggly');\nvar logglyConfig = {\n    token: 'your-account-token',\n    subdomain: 'your-sub-domain',\n};\n\nvar logglyStream = new Bunyan2Loggly(logglyConfig);\n\n// create the logger\nvar logger = bunyan.createLogger({\n    name: 'logglylog',\n    streams: [\n        {\n            type: 'raw',\n            stream: logglyStream,\n        },\n    ],\n});\n\nlogger.info({});\n```\n\n> Please note: you MUST define `type: 'raw'` as bunyan-loggly expects to receive objects so that certain values can be changed as required by loggly (i.e. time to timestamp).\n\n## Buffering\n\nbunyan-loggly supports basic buffering and when setup, will only send your logs through to loggly on every x logs. To setup buffering, just pass an integer as the second parameter when creating a new instance of Bunyan2Loggly:\n\n```javascript\nvar bunyan = require('bunyan');\nvar Bunyan2Loggly = require('bunyan-loggly');\nvar logglyConfig = {\n    token: 'your-account-token',\n    subdomain: 'your-sub-domain',\n};\nvar bufferLength = 5;\n\nvar logglyStream = new Bunyan2Loggly(logglyConfig, bufferLength);\n\n// create the logger\nvar logger = bunyan.createLogger({\n    name: 'logglylog',\n    streams: [\n        {\n            type: 'raw',\n            stream: logglyStream,\n        },\n    ],\n});\n\nlogger.info({});    // won't send to loggly\nlogger.info({});    // won't send to loggly\nlogger.info({});    // won't send to loggly\nlogger.info({});    // won't send to loggly\nlogger.info({});    // will send to loggly\nlogger.info({});    // won't send to loggly\n```\n\n### Buffer Timeout\n\nWhen buffering, a timeout can be provided to force flushing the buffer after a period of time. To setup a flush timeout, pass a timeout value (in ms) as the third parameter when creating a new instance of Bunyan2Loggly:\n\n```javascript\nvar bunyan = require('bunyan');\nvar Bunyan2Loggly = require('bunyan-loggly');\nvar logglyConfig = {\n    token: 'your-account-token',\n    subdomain: 'your-sub-domain',\n};\nvar bufferLength = 5;\nvar bufferTimeout = 500;\n\nvar logglyStream = new Bunyan2Loggly(logglyConfig, bufferLength, bufferTimeout);\n\n// create the logger\nvar logger = bunyan.createLogger({\n    name: 'logglylog',\n    streams: [\n        {\n            type: 'raw',\n            stream: logglyStream,\n        },\n    ],\n});\n\nlogger.info({});    // will be sent to loggly in 500ms if buffer threshold is not reached\n```\n\n### Loggly request information\n\nEach time log content is sent to loggly, the result of this request will be passed to the optional callback paramer `logglyCallback`\n\n```javascript\nvar bunyan = require('bunyan');\nvar Bunyan2Loggly = require('bunyan-loggly');\nvar logglyConfig = {\n    token: 'your-account-token',\n    subdomain: 'your-sub-domain',\n};\n\nfunction logglyCallback(error, result, content) {\n    // handle loggly callback\n}\n\nvar logglyStream = new Bunyan2Loggly(logglyConfig, null, null, logglyCallback);\n```\n",
+    "licenseText": "The MIT License (MIT)\n\nCopyright (c) 2016 Maurice Butler\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/bunyan-loggly/-/bunyan-loggly-1.3.3.tgz#8e0f03df7eab60d1761234be1aef4874bb915fa4",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/bunyan-loggly/-/bunyan-loggly-1.3.3.tgz",
+    "hash": "8e0f03df7eab60d1761234be1aef4874bb915fa4",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "8e0f03df7eab60d1761234be1aef4874bb915fa4"
+}

@@ -1,0 +1,40 @@
+{
+  "url": "http://timemeet.me",
+  "server": {
+    "port": 2368,
+    "host": "127.0.0.1"
+  },
+  "database": {
+    "client": "mysql",
+    "connection": {
+      "host": "localhost",
+      "user": "root",
+      "password": "013979wb",
+      "database": "timemeetOnGhost_prod"
+    }
+  },
+  "mail": {
+    "from": "admin@timemeet.me",
+    "transport": "SMTP",
+    "options": {
+      "host": "smtp.exmail.qq.com",
+      "port": 465,
+      "secureConnection": true,
+      "requiresAuth": true,
+      "auth": {
+        "user": "admin@timemeet.me",
+        "pass": "wbIM@199139"
+      }
+    }
+  },
+  "logging": {
+    "transports": [
+      "file",
+      "stdout"
+    ]
+  },
+  "process": "systemd",
+  "paths": {
+    "contentPath": "/web/timemeetOnGhost/content"
+  }
+}

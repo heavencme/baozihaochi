@@ -1,0 +1,77 @@
+{
+  "manifest": {
+    "name": "ghost-ignition",
+    "version": "2.9.2",
+    "description": "Basic configuration and tooling shared across applications",
+    "main": "index.js",
+    "scripts": {
+      "lint": "eslint lib test",
+      "test": "npm run lint && mocha -- $(find test -name '*.test.js')"
+    },
+    "keywords": [
+      "ghost",
+      "tooling",
+      "config",
+      "errors",
+      "nconf",
+      "configuration"
+    ],
+    "files": [
+      "index.js",
+      "lib"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/TryGhost/Ignition.git"
+    },
+    "author": {
+      "name": "Ghost Foundation"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/TryGhost/Ignition/issues"
+    },
+    "engine": {
+      "node": ">=6"
+    },
+    "homepage": "https://github.com/TryGhost/Ignition#readme",
+    "dependencies": {
+      "bunyan": "1.8.12",
+      "bunyan-loggly": "^1.3.1",
+      "caller": "1.0.1",
+      "debug": "^2.6.9",
+      "find-root": "1.1.0",
+      "fs-extra": "^3.0.1",
+      "json-stringify-safe": "^5.0.1",
+      "lodash": "^4.16.4",
+      "moment": "^2.15.2",
+      "nconf": "^0.10.0",
+      "prettyjson": "^1.1.3",
+      "uuid": "^3.0.0"
+    },
+    "devDependencies": {
+      "chai": "3.5.0",
+      "eslint": "4.19.1",
+      "grunt": "1.0.2",
+      "grunt-release": "0.14.0",
+      "mocha": "3.0.1",
+      "should": "11.1.1",
+      "sinon": "1.17.6"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-ghost-ignition-2.9.2-e68de88fa4a20fc09c833fe3278bdc20dca6d525/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# Ignition \n[![Build Status](https://travis-ci.org/TryGhost/Ignition.svg?branch=master)](https://travis-ci.org/TryGhost/Ignition)\n\nBasic configuration and tooling shared across applications\n\n\n## Logging\n```\nvar logging = require('ghost-ignition').logging({\n    domain: 'example.com,\n    env: 'production',\n    mode: 'long',\n    level: 'info',\n    transports: ['file'],\n    rotation: {enabled: true, period: '1d', count: 10},\n    path: '/var/log'\n});\n\nmode         : long|short (default is `short`) - defines the output volume (helpful when logging requests)\nlevel        : info|error|debug (default is `info`)\ntransports   : stdout|file|stderr (default is `['stdout']`)\npath         : is used when file transport is enabled (default is `process.cwd()`)\n\nlogging.info({req: req, res: res});\nlogging.info('Info');\nlogging.error(new Error());\nlogging.warn('this', 'is', 'a', 'warning');\nlogging.debug('this is a debug mode');\n```\n\n### env parameter\n\nEach config option, can be passed as an environment variable:\nE.g. `LEVEL=error` or `MODE=long`.\n\nThere is also a special env var\n\n`LOIN=true` \n\nWhich sets the LEVEL to info and the MODE to long, for maximum output.\n\n### Logging into file\nWe log JSON format into file. This is very easy to forward and easy to interprete.\nBy default we create two log files:\n- errors log entries: contains only errors\n- all log entries: contains everything\n\nYou can easily make the log files readable by calling:\n`cat your.log | bunyan`\n\n### Loggly Stream\nYou can send your logs to loggly by configuring the logger like this:\n\n```\nvar logging = require('ghost-ignition').logging({\n    domain: 'example.com,\n    env: 'production',\n    mode: 'long',\n    level: 'info',\n    transports: ['file', 'loggly'],\n    rotation: {enabled: true, period: '1d', count: 10},\n    path: '/var/log',\n    loggly: {\n      token: 'your-token',\n      subdomain: 'your-subdomain',\n      match: 'regex as string to match specific properties only certain log entries'\n    }\n});\n\nExample for match:\nmatch: 'level:critical'\nmatch: 'statusCode:500|statusCode:403'\n```\n\nNOTE: The `loggly` stream will only send error logs. Furthermore, you can only match a string in the error object.\n\n### Utils\n\n```\nvar errors = require('ghost-ignition');\n\n// you can pass any error and ignition will tell you if this is a custom ignition error\nerrors.utils.isIgnitionError(err);\n\n// serialize an error to a specific format\nerrors.utils.serialize(err, {format: 'jsonapi|oauth'});\n\n// deserialize specific format to error instance\nerrors.utils.deserialize(err);\n```\n\n# Copyright & License\n\nCopyright (c) 2016-2018 Ghost Foundation - Released under the [MIT license](LICENSE).\n",
+    "licenseText": "The MIT License (MIT)\n\nCopyright (c) 2016-2018 Ghost Foundation\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/ghost-ignition/-/ghost-ignition-2.9.2.tgz#e68de88fa4a20fc09c833fe3278bdc20dca6d525",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/ghost-ignition/-/ghost-ignition-2.9.2.tgz",
+    "hash": "e68de88fa4a20fc09c833fe3278bdc20dca6d525",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "e68de88fa4a20fc09c833fe3278bdc20dca6d525"
+}

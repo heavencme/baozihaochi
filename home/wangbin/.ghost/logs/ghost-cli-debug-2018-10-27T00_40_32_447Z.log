@@ -1,0 +1,16 @@
+Debug Information:
+    OS: Ubuntu, v15.04
+    Node Version: v11.0.0
+    Ghost-CLI Version: 1.9.6
+    Environment: production
+    Command: 'ghost doctor'
+Message: Command failed: /bin/sh -c sudo -S -p '#node-sudo-passwd#'  systemctl is-active ghost_localhost
+
+unknown
+
+Exit code: 3
+
+--------------- stdout ---------------
+unknown
+
+

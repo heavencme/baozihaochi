@@ -1,0 +1,80 @@
+{
+  "manifest": {
+    "name": "iltorb",
+    "version": "1.3.10",
+    "description": "Brotli compression/decompression with native bindings",
+    "homepage": "https://github.com/MayhemYDG/iltorb",
+    "bugs": {
+      "url": "https://github.com/MayhemYDG/iltorb/issues"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/MayhemYDG/iltorb.git"
+    },
+    "main": "index.js",
+    "keywords": [
+      "brotli",
+      "compression",
+      "decompression"
+    ],
+    "contributors": [
+      {
+        "name": "Nicolas Stepien",
+        "email": "stepien.nicolas@gmail.com"
+      },
+      {
+        "name": "Hung Tran",
+        "email": "oohnoitz@gmail.com"
+      }
+    ],
+    "files": [
+      "brotli/common",
+      "brotli/dec",
+      "brotli/enc",
+      "brotli/include",
+      "src",
+      "binding.gyp",
+      "index.js"
+    ],
+    "dependencies": {
+      "detect-libc": "^0.2.0",
+      "nan": "^2.6.2",
+      "node-gyp": "^3.6.2",
+      "prebuild-install": "^2.3.0"
+    },
+    "devDependencies": {
+      "chai": "^4.1.1",
+      "mocha": "^3.5.0",
+      "prebuild": "^6.2.2",
+      "prebuild-ci": "^2.2.3"
+    },
+    "scripts": {
+      "install": "detect-libc prebuild-install || node-gyp rebuild",
+      "rebuild": "prebuild --compile",
+      "prebuild-ci": "prebuild-ci",
+      "test": "mocha"
+    },
+    "binary": {
+      "module_name": "iltorb",
+      "module_path": "./build/bindings",
+      "remote_path": "v{version}",
+      "host": "https://github.com/MayhemYDG/iltorb/releases/download/"
+    },
+    "license": "MIT",
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-iltorb-1.3.10-a0d9e4e7d52bf510741442236cbe0cc4230fc9f8/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# iltorb\n\n[![NPM Version][npm-badge]][npm-url]\n[![Travis Build Status][travis-badge]][travis-url]\n[![AppVeyor Build Status][appveyor-badge]][appveyor-url]\n\n[iltorb](https://www.npmjs.com/package/iltorb) is a [Node.js](https://nodejs.org) package offering native bindings for the [brotli](https://github.com/google/brotli) compression library.\n\n## Install\n\nThis module uses `prebuild` to download a pre-compiled binary for your platform, if it exists. Otherwise, it will use `node-gyp` to build the module.\n\n```\nnpm install iltorb\n```\n\n### Prerequisites for Building\n\nThe following is required to build from source or when a [pre-compiled binary](https://github.com/MayhemYDG/iltorb/releases) does not exist.\n\n- Python 2.7\n- GCC 4.8+ (Unix) or [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools) (Windows), see [Node Building tools](https://github.com/nodejs/node-gyp#installation).\n\n## Methods\n\n### Async\n\n#### compress(buffer[, brotliEncodeParams], callback)\n\n```javascript\nconst compress = require('iltorb').compress;\n\ncompress(input, function(err, output) {\n  // ...\n});\n```\n\n#### decompress(buffer[, brotliDecodeParams], callback)\n\n```javascript\nconst decompress = require('iltorb').decompress;\n\ndecompress(input, function(err, output) {\n  // ...\n});\n```\n\n### Sync\n\n#### compressSync(buffer[, brotliEncodeParams])\n\n```javascript\nconst compressSync = require('iltorb').compressSync;\n\ntry {\n  var output = compressSync(input);\n} catch(err) {\n  // ...\n}\n```\n\n#### decompressSync(buffer[, brotliDecodeParams])\n\n```javascript\nconst decompressSync = require('iltorb').decompressSync;\n\ntry {\n  var output = decompressSync(input);\n} catch(err) {\n  // ...\n}\n```\n\n### Stream\n\n#### compressStream([brotliEncodeParams])\n\n```javascript\nconst compressStream = require('iltorb').compressStream;\nconst fs = require('fs');\n\nfs.createReadStream('path/to/input')\n  .pipe(compressStream())\n  .pipe(fs.createWriteStream('path/to/output'));\n```\n\n##### compressionStream.flush()\n\nCall this method to flush pending data. Don't call this frivolously, premature flushes negatively impact the effectiveness of the compression algorithm.\n\n#### decompressStream([brotliDecodeParams])\n\n```javascript\nconst decompressStream = require('iltorb').decompressStream;\nconst fs = require('fs');\n\nfs.createReadStream('path/to/input')\n  .pipe(decompressStream())\n  .pipe(fs.createWriteStream('path/to/output'));\n```\n\n### brotliEncodeParams\n\nThe `compress`, `compressSync` and `compressStream` methods may accept an optional `brotliEncodeParams` object to define some or all of brotli's compression parameters:\n- [type definition](https://github.com/google/brotli/blob/v0.6.0/enc/quality.h#L42-L51)\n- [defaults](https://github.com/google/brotli/blob/v0.6.0/enc/encode.c#L676-L683)\n- [explanations](https://github.com/google/brotli/blob/v0.6.0/include/brotli/encode.h#L130-L181)\n\n```javascript\nconst brotliEncodeParams = {\n  mode: 0,\n  quality: 11,\n  lgwin: 22,\n  lgblock: 0,\n  size_hint: 0, // automatically set for `compress` and `compressSync`\n  disable_literal_context_modeling: false,\n  dictionary: Buffer\n};\n```\n\n### brotliDecodeParams\n\nThe `decompress`, `decompressSync` and `decompressStream` methods may accept an optional `brotliDecodeParams` object to provide a custom dictionary.\n\n```javascript\nconst brotliDecodeParams = {\n  dictionary: Buffer\n};\n```\n\n[npm-badge]: https://img.shields.io/npm/v/iltorb.svg\n[npm-url]: https://www.npmjs.com/package/iltorb\n[travis-badge]: https://img.shields.io/travis/MayhemYDG/iltorb.svg\n[travis-url]: https://travis-ci.org/MayhemYDG/iltorb\n[appveyor-badge]: https://ci.appveyor.com/api/projects/status/ysib4o1bfey84lqk/branch/master?svg=true\n[appveyor-url]: https://ci.appveyor.com/project/MayhemYDG/iltorb\n",
+    "licenseText": "MIT License\nCopyright (c) 2015 Nicolas Stepien <stepien.nicolas@gmail.com>\n                   Hung Tran <oohnoitz@gmail.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/iltorb/-/iltorb-1.3.10.tgz#a0d9e4e7d52bf510741442236cbe0cc4230fc9f8",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/iltorb/-/iltorb-1.3.10.tgz",
+    "hash": "a0d9e4e7d52bf510741442236cbe0cc4230fc9f8",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "a0d9e4e7d52bf510741442236cbe0cc4230fc9f8"
+}

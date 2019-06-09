@@ -1,0 +1,46 @@
+{
+  "manifest": {
+    "name": "mkdirp",
+    "description": "Recursively mkdir, like `mkdir -p`",
+    "version": "0.3.2",
+    "author": {
+      "name": "James Halliday",
+      "email": "mail@substack.net",
+      "url": "http://substack.net"
+    },
+    "main": "./index",
+    "keywords": [
+      "mkdir",
+      "directory"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/substack/node-mkdirp.git"
+    },
+    "scripts": {
+      "test": "tap test/*.js"
+    },
+    "devDependencies": {
+      "tap": "~0.2.4"
+    },
+    "license": "MIT",
+    "engines": {
+      "node": "*"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-mkdirp-0.3.2-4bfb891e9c48b93d6b567f2c3cf2dd3f56bcdef8/package.json",
+    "readmeFilename": "README.markdown",
+    "readme": "mkdirp\n======\n\nLike `mkdir -p`, but in node.js!\n\n[![build status](https://secure.travis-ci.org/substack/node-mkdirp.png)](http://travis-ci.org/substack/node-mkdirp)\n\nexample\n=======\n\npow.js\n------\n    var mkdirp = require('mkdirp');\n    \n    mkdirp('/tmp/foo/bar/baz', function (err) {\n        if (err) console.error(err)\n        else console.log('pow!')\n    });\n\nOutput\n    pow!\n\nAnd now /tmp/foo/bar/baz exists, huzzah!\n\nmethods\n=======\n\nvar mkdirp = require('mkdirp');\n\nmkdirp(dir, mode, cb)\n---------------------\n\nCreate a new directory and any necessary subdirectories at `dir` with octal\npermission string `mode`.\n\nIf `mode` isn't specified, it defaults to `0777 & (~process.umask())`.\n\n`cb(err, made)` fires with the error or the first directory `made`\nthat had to be created, if any.\n\nmkdirp.sync(dir, mode)\n----------------------\n\nSynchronously create a new directory and any necessary subdirectories at `dir`\nwith octal permission string `mode`.\n\nIf `mode` isn't specified, it defaults to `0777 & (~process.umask())`.\n\nReturns the first directory that had to be created, if any.\n\ninstall\n=======\n\nWith [npm](http://npmjs.org) do:\n\n    npm install mkdirp\n\nlicense\n=======\n\nMIT/X11\n",
+    "licenseText": "Copyright 2010 James Halliday (mail@substack.net)\n\nThis project is free software released under the MIT/X11 license:\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.3.2.tgz#4bfb891e9c48b93d6b567f2c3cf2dd3f56bcdef8",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.3.2.tgz",
+    "hash": "4bfb891e9c48b93d6b567f2c3cf2dd3f56bcdef8",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "4bfb891e9c48b93d6b567f2c3cf2dd3f56bcdef8"
+}

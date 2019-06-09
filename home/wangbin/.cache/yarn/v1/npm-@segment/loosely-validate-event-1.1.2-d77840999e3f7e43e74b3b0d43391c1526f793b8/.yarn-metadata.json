@@ -1,0 +1,41 @@
+{
+  "manifest": {
+    "name": "@segment/loosely-validate-event",
+    "version": "1.1.2",
+    "main": "index.js",
+    "scripts": {
+      "test": "ava",
+      "coverage": "nyc ava"
+    },
+    "devDependencies": {
+      "ava": "^0.18.0",
+      "nyc": "^10.1.2",
+      "standard": "^8.6.0"
+    },
+    "dependencies": {
+      "component-type": "^1.2.1",
+      "join-component": "^1.1.0"
+    },
+    "nyc": {
+      "reporter": [
+        "lcov",
+        "html"
+      ]
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-@segment/loosely-validate-event-1.1.2-d77840999e3f7e43e74b3b0d43391c1526f793b8/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# @segment/loosely-validate-event\n\nLoosely validate an event.\n\n## Example\n\n```js\nconst validate = require('@segment/loosely-validate-event')\n\nconst event = {\n  type: 'track',\n  userId: 'abc123',\n  properties: {\n    foo: 'bar'\n  }\n}\n\nvalidate(event) // throws if `event` does not pass validation\n```\n",
+    "description": "Loosely validate an event."
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/@segment/loosely-validate-event/-/loosely-validate-event-1.1.2.tgz#d77840999e3f7e43e74b3b0d43391c1526f793b8",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/@segment/loosely-validate-event/-/loosely-validate-event-1.1.2.tgz",
+    "hash": "d77840999e3f7e43e74b3b0d43391c1526f793b8",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "d77840999e3f7e43e74b3b0d43391c1526f793b8"
+}

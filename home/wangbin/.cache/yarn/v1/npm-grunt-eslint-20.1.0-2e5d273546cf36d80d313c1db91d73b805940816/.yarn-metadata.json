@@ -1,0 +1,63 @@
+{
+  "manifest": {
+    "name": "grunt-eslint",
+    "version": "20.1.0",
+    "description": "Validate files with ESLint",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/sindresorhus/grunt-eslint.git"
+    },
+    "author": {
+      "name": "Sindre Sorhus",
+      "email": "sindresorhus@gmail.com",
+      "url": "sindresorhus.com"
+    },
+    "engines": {
+      "node": ">=4"
+    },
+    "scripts": {
+      "test": "grunt"
+    },
+    "files": [
+      "tasks"
+    ],
+    "keywords": [
+      "gruntplugin",
+      "lint",
+      "validate",
+      "report",
+      "jshint",
+      "jslint",
+      "ecmascript",
+      "esprima"
+    ],
+    "dependencies": {
+      "chalk": "^2.1.0",
+      "eslint": "^4.0.0"
+    },
+    "devDependencies": {
+      "grunt": "^1.0.1",
+      "grunt-cli": "^1.2.0",
+      "grunt-shell": "^2.1.0"
+    },
+    "peerDependencies": {
+      "grunt": ">=0.4.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-grunt-eslint-20.1.0-2e5d273546cf36d80d313c1db91d73b805940816/package.json",
+    "readmeFilename": "readme.md",
+    "readme": "# grunt-eslint [![Build Status](https://travis-ci.org/sindresorhus/grunt-eslint.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-eslint)\n\n> Validate files with [ESLint](https://eslint.org)\n\n![](screenshot.png)\n\n\n## Install\n\n```\n$ npm install --save-dev grunt-eslint\n```\n\n\n## Usage\n\n```js\nrequire('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks\n\ngrunt.initConfig({\n\teslint: {\n\t\ttarget: ['file.js']\n\t}\n});\n\ngrunt.registerTask('default', ['eslint']);\n```\n\n\n## Examples\n\n### Custom config and rules\n\n```js\ngrunt.initConfig({\n\teslint: {\n\t\toptions: {\n\t\t\tconfigFile: 'conf/eslint.json',\n\t\t\trulePaths: ['conf/rules']\n\t\t},\n\t\ttarget: ['file.js']\n\t}\n});\n```\n\n### Custom formatter\n\n```js\ngrunt.initConfig({\n\teslint: {\n\t\toptions: {\n\t\t\tformat: require('eslint-tap')\n\t\t},\n\t\ttarget: ['file.js']\n\t}\n});\n```\n\n\n## Options\n\nSee the [ESLint options](http://eslint.org/docs/developer-guide/nodejs-api#cliengine).\n\nIn addition the following options are supported:\n\n### format\n\nType: `string`<br>\nDefault: `'stylish'`\n\nName of a [built-in formatter](https://github.com/nzakas/eslint/tree/master/lib/formatters) or path to a custom one.\n\nSome formatters you might find useful: [eslint-json](https://github.com/sindresorhus/eslint-json), [eslint-tap](https://github.com/sindresorhus/eslint-tap).\n\n### outputFile\n\nType: `string`<br>\nDefault: `''`\n\nOutput the report to a file.\n\n### quiet\n\nType: `boolean`<br>\nDefault: `false`\n\nReport errors only.\n\n### maxWarnings\n\nType: `number`<br>\nDefault: `-1` *(means no limit)*\n\nNumber of warnings to trigger non-zero exit code.\n\n\n## License\n\nMIT © [Sindre Sorhus](https://sindresorhus.com)\n",
+    "licenseText": "MIT License\n\nCopyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/grunt-eslint/-/grunt-eslint-20.1.0.tgz#2e5d273546cf36d80d313c1db91d73b805940816",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/grunt-eslint/-/grunt-eslint-20.1.0.tgz",
+    "hash": "2e5d273546cf36d80d313c1db91d73b805940816",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "2e5d273546cf36d80d313c1db91d73b805940816"
+}

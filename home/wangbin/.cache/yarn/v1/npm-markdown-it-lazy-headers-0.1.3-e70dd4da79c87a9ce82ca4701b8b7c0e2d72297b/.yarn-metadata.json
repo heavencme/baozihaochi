@@ -1,0 +1,48 @@
+{
+  "manifest": {
+    "name": "markdown-it-lazy-headers",
+    "version": "0.1.3",
+    "description": "Lazy ATX headers plugin for markdown-it",
+    "main": "index.js",
+    "scripts": {
+      "test": "mocha"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Galadirith/markdown-it-lazy-headers"
+    },
+    "keywords": [
+      "markdown-it",
+      "markdown-it-plugin",
+      "markdown"
+    ],
+    "author": {
+      "name": "Galadirith"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/Galadirith/markdown-it-lazy-headers/issues"
+    },
+    "homepage": "https://github.com/Galadirith/markdown-it-lazy-headers",
+    "devDependencies": {
+      "markdown-it": "^4.4.0",
+      "markdown-it-testgen": "^0.1.4",
+      "mocha": "^2.3.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-markdown-it-lazy-headers-0.1.3-e70dd4da79c87a9ce82ca4701b8b7c0e2d72297b/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# markdown-it-lazy-headers\n\n`markdown-it-lazy-headers` is a plugin for\n[`markdown-it`](https://github.com/markdown-it/markdown-it) that relaxes the\nsyntax of [ATX headers](http://spec.commonmark.org/0.22/#atx-header) so that you\ndon't have to follow the opening sequence of `#` characters by a space. Should\nyou have any problems while installing or using `markdown-it-lazy-headers`\nplease open up a\n[new issue](https://github.com/Galadirith/markdown-it-lazy-headers/issues).\n\n## Installation\n\n```\nnpm install --save markdown-it-lazy-headers\n```\n\n## Usage\n\n`markdown-it-lazy-headers` has no configuration options, simply `use` it with an\ninstance of `markdown-it` to enable lazy headers:\n\n```\nvar md = require('markdown-it')()\n        .use(require('markdown-it-lazy-headers'));\n```\n\n## Testing\n\n`markdown-it-testgen` through `mocha` is used to test\n`markdown-it-lazy-headers`. The test suite is a modified version of the ATX\nheader suite used by commonmark:\n\n```\nnpm test\n```\n\n## License\n\n`markdown-it-lazy-headers` is released under the [MIT license](LICENSE.md).\n",
+    "licenseText": "Copyright (c) 2015 Edward Fauchon-Jones\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n------------------------------------------------------------------------\n\nThis repository incorporates code from\n[markdown-it](https://github.com/markdown-it/markdown-it) covered by the\nfollowing terms:\n\n> Copyright (c) 2014 Vitaly Puzrin, Alex Kocharin.\n>\n> Permission is hereby granted, free of charge, to any person\n> obtaining a copy of this software and associated documentation\n> files (the \"Software\"), to deal in the Software without\n> restriction, including without limitation the rights to use,\n> copy, modify, merge, publish, distribute, sublicense, and/or sell\n> copies of the Software, and to permit persons to whom the\n> Software is furnished to do so, subject to the following\n> conditions:\n>\n> The above copyright notice and this permission notice shall be\n> included in all copies or substantial portions of the Software.\n>\n> THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n> EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n> OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n> NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\n> HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\n> WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n> FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\n> OTHER DEALINGS IN THE SOFTWARE.\n\n------------------------------------------------------------------------\n\nThis repository incorporates code from\n[markdown-it-math](https://github.com/runarberg/markdown-it-math) covered by the\nfollowing terms:\n\n> Copyright (c) 2015 Rúnar Berg Baugsson Sigríðarson\n>\n> Permission is hereby granted, free of charge, to any person obtaining a copy\n> of this software and associated documentation files (the \"Software\"), to deal\n> in the Software without restriction, including without limitation the rights\n> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n> copies of the Software, and to permit persons to whom the Software is\n> furnished to do so, subject to the following conditions:\n>\n> The above copyright notice and this permission notice shall be included in\n> all copies or substantial portions of the Software.\n>\n> THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n> THE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/markdown-it-lazy-headers/-/markdown-it-lazy-headers-0.1.3.tgz#e70dd4da79c87a9ce82ca4701b8b7c0e2d72297b",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/markdown-it-lazy-headers/-/markdown-it-lazy-headers-0.1.3.tgz",
+    "hash": "e70dd4da79c87a9ce82ca4701b8b7c0e2d72297b",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "e70dd4da79c87a9ce82ca4701b8b7c0e2d72297b"
+}

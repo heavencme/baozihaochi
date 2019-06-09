@@ -1,0 +1,62 @@
+{
+  "manifest": {
+    "name": "maxmin",
+    "version": "1.1.0",
+    "description": "Get a pretty output of the original, minified, gzipped size of a string or buffer: 130 B → 91 B → 53 B (gzip)",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/sindresorhus/maxmin.git"
+    },
+    "author": {
+      "name": "Sindre Sorhus",
+      "email": "sindresorhus@gmail.com",
+      "url": "http://sindresorhus.com"
+    },
+    "engines": {
+      "node": ">=0.10.0"
+    },
+    "scripts": {
+      "test": "node test.js"
+    },
+    "files": [
+      "index.js"
+    ],
+    "keywords": [
+      "string",
+      "buffer",
+      "pretty",
+      "color",
+      "gzip",
+      "minified",
+      "min",
+      "max",
+      "diff",
+      "difference"
+    ],
+    "dependencies": {
+      "chalk": "^1.0.0",
+      "figures": "^1.0.1",
+      "gzip-size": "^1.0.0",
+      "pretty-bytes": "^1.0.0"
+    },
+    "devDependencies": {
+      "ava": "0.0.4"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-maxmin-1.1.0-71365e84a99dd8f8b3f7d5fde2f00d1e7f73be61/package.json",
+    "readmeFilename": "readme.md",
+    "readme": "# maxmin [![Build Status](https://travis-ci.org/sindresorhus/maxmin.svg?branch=master)](https://travis-ci.org/sindresorhus/maxmin)\n\n> Get a pretty output of the original, minified, gzipped size of a string or buffer\n\n![](screenshot.png)\n\nUseful for logging the difference between original and minified file in e.g. a build-system.\n\n\n## Install\n\n```sh\n$ npm install --save maxmin\n```\n\n\n## Usage\n\n```js\nvar maxmin = require('maxmin');\n\nvar max = 'function smoothRangeRandom(min,max){var num=Math.floor(Math.random()*(max-min+1)+min);return this.prev=num===this.prev?++num:num};';\n\nvar min = '(function(b,c){var a=Math.floor(Math.random()*(c-b+1)+b);return this.a=a===this.a?++a:a})()';\n\nconsole.log(maxmin(max, min, true));\n//=> 130 B → 91 B → 53 B (gzip)\n```\n\n## API\n\n### maxmin(max, min, useGzip)\n\n#### max\n\n*Required*  \nType: `string`, `buffer`, `number`\n\nOriginal string or its size in bytes.\n\n#### min\n\n*Required*  \nType: `string`, `buffer`, `number`\n\nMinified string or its size in bytes.\n\n#### useGzip\n\nType: `boolean`  \nDefault: `false`\n\nShow gzipped size of `min`. Pretty slow. Not shown when `min` is a `number`.\n\n\n## License\n\nMIT © [Sindre Sorhus](http://sindresorhus.com)\n",
+    "licenseText": "The MIT License (MIT)\n\nCopyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/maxmin/-/maxmin-1.1.0.tgz#71365e84a99dd8f8b3f7d5fde2f00d1e7f73be61",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/maxmin/-/maxmin-1.1.0.tgz",
+    "hash": "71365e84a99dd8f8b3f7d5fde2f00d1e7f73be61",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "71365e84a99dd8f8b3f7d5fde2f00d1e7f73be61"
+}

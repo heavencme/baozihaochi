@@ -1,0 +1,80 @@
+{
+  "manifest": {
+    "name": "bookshelf-relations",
+    "version": "0.2.1",
+    "alias": "bookshelf-relations",
+    "description": "Auto update relations",
+    "main": "index.js",
+    "scripts": {
+      "lint": "eslint lib",
+      "test": "npm run lint && _mocha --timeout 10000 --report lcovonly -- test/integration/*_spec.js test/unit/*_spec.js",
+      "perf": "_mocha --report lcovonly -- test/perf/*_spec.js",
+      "coverage": "nyc --reporter=lcov _mocha -- test/integration/*_spec.js test/unit/*_spec.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/TryGhost/bookshelf-relations.git"
+    },
+    "keywords": [
+      "bookshelf",
+      "relations",
+      "relation",
+      "nested",
+      "relationship",
+      "relationships",
+      "associations",
+      "association"
+    ],
+    "author": {
+      "name": "Ghost Foundation",
+      "email": "hello@ghost.org",
+      "url": "https://ghost.org"
+    },
+    "engine": {
+      "node": ">=6"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/TryGhost/bookshelf-relations/issues"
+    },
+    "devDependencies": {
+      "bookshelf": "0.13.3",
+      "deep-diff": "^0.3.4",
+      "eslint": "4.19.1",
+      "grunt": "1.0.2",
+      "grunt-release": "^0.14.0",
+      "knex": "0.14.6",
+      "knex-migrator": "3.1.6",
+      "mocha": "^3.0.2",
+      "mysql": "^2.11.1",
+      "nconf": "0.10.0",
+      "nyc": "11.7.1",
+      "should": "13.2.1",
+      "sinon": "^4.1.2",
+      "sqlite3": "^3.1.8"
+    },
+    "dependencies": {
+      "bluebird": "^3.4.1",
+      "ghost-ignition": "2.9.2",
+      "lodash": "4.17.10"
+    },
+    "peerDependencies": {
+      "bookshelf": ">=0.13.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-bookshelf-relations-0.2.1-6974c0ec92409807d2cf6e73e111a38ebc03e7cd/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# Bookshelf Relations\n\n\n> Auto insert, update and remove nested relationships.\n\n## Installation\n\n    npm install bookshelf-relations --save\n    yarn add bookshelf-relations\n\n## Usage\n\n1. Register the plugin.\n\n```\n    bookshelf.plugin('bookshelf-relations');\n```\n\n2. Define your relationships on each model.\n\n```\n    bookshelf.Model.extend({\n        relationships: ['tags', 'news']\n    }, {...});\n```\n\n3. Ensure you call `initialize` of the parent model. This is only required if `autoHook` is set to true.\n\n```\n    const proto = bookshelf.Model.prototype;\n    \n    bookshelf.Model.extend({\n        initialize: function() {\n            // first register your model events. \n            // otherwise the order of events is different.\n            \n            // trigger parent\n            proto.initialize.call(this);\n        }\n    });\n```\n    \n## Plugin Options\n\n- `autoHook`: The plugin hooks into your models via bookshelf model events. It adds/updates/deletes the passed relations. So it takes over everything for you. (**default: true**)\n- `unsetRelations`: The plugin will unset the relations after they are detected. (**default: true**)\n- `hooks.belongsToMany.beforeRelationCreation`: Hook into the process of updating belongsToMany relationships.\n- `hooks.belongsToMany.after`: Hook into the process of updating belongsToMany relationships.\n\n## Notes\n\n### Events\n\nIf you are using `autoHook:true` (!), then you should know the following fact. \n\nBookshelf triggers two events if you insert data: `created` and `saved` (in this order).\nBookshelf triggers two events if you update data: `updated` and `saved` (in this order).\n\n`autoHook:true` makes use of the `created` and `updated` events.\n\nIf you are also listen on `created`, please ensure you don't rely on the data, because your parent model will for sure receive the event first.\nAnd that means, the relations were not yet updated. This is not optimal, but hard to solve right now.\n\nSo, please use the `saved` event and differentiate between `options.method=insert|update` - this is reliable.\n\nYou don't have to use the builtin `autoHook`, you can simply trigger the plugin yourself using `bookshelf.manager.updateRelations`.\n\n### Transactions\n\n*It's highly recommended to insert/update/delete your models within [transactions](http://bookshelfjs.org/#Bookshelf-instance-transaction) when using this plugin, because updating nested relationships requires additional queries to the database. Otherwise if an error occurs during any query, you can't expect data to be rolled back fully.*\n\n\n## Unsupported\n\n~~The plugin is not able to update nested-nested relations at the moment. e.g. `.set('tags', [{ name: 'tag1', [relation]: {} }])`. Relation won't get updated.~~ Supported, but no tests available.\n\n## Tests\n\n    npm test\n    NODE_ENV=testing-mysql npm test\n    npm run perf\n    npm run coverage\n\n# Copyright & License\n\nCopyright (c) 2017-2018 Ghost Foundation - Released under the [MIT license](LICENSE).\n",
+    "licenseText": "Copyright (c) 2016-2018 Ghost Foundation\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/bookshelf-relations/-/bookshelf-relations-0.2.1.tgz#6974c0ec92409807d2cf6e73e111a38ebc03e7cd",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/bookshelf-relations/-/bookshelf-relations-0.2.1.tgz",
+    "hash": "6974c0ec92409807d2cf6e73e111a38ebc03e7cd",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "6974c0ec92409807d2cf6e73e111a38ebc03e7cd"
+}

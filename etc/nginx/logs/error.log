@@ -1,0 +1,25 @@
+2018/05/09 15:24:28 [emerg] 21776#0: open() "/etc/nginx/mime.types" failed (2: No such file or directory) in /etc/nginx/conf/nginx.conf:30
+2018/05/09 15:25:32 [emerg] 21850#0: open() "/etc/nginx/mime.types" failed (2: No such file or directory) in /etc/nginx/conf/nginx.conf:30
+2018/05/09 15:27:40 [emerg] 21882#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:27:40 [emerg] 21882#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:27:40 [emerg] 21882#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:27:40 [emerg] 21882#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:27:40 [emerg] 21882#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:27:40 [emerg] 21882#0: still could not bind()
+2018/05/09 15:28:02 [emerg] 21955#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:28:02 [emerg] 21955#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:28:02 [emerg] 21955#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:28:02 [emerg] 21955#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:28:02 [emerg] 21955#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2018/05/09 15:28:02 [emerg] 21955#0: still could not bind()
+2018/05/16 13:43:03 [emerg] 26195#0: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2018/05/16 14:08:53 [emerg] 26701#0: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2018/05/16 14:10:51 [emerg] 26725#0: the "http2" parameter requires ngx_http_v2_module in /etc/nginx/conf/nginx.conf:90
+2018/05/16 14:19:28 [emerg] 26811#0: BIO_new_file("/etc/letsencrypt/live/timemeet.me/fullchain.pem") failed (SSL: error:02001002:system library:fopen:No such file or directory:fopen('/etc/letsencrypt/live/timemeet.me/fullchain.pem','r') error:2006D080:BIO routines:BIO_new_file:no such file)
+2018/05/16 14:25:24 [emerg] 26993#0: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2018/05/16 14:29:40 [emerg] 27094#0: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2018/05/20 08:49:07 [alert] 27252#0: *1063 open socket #8 left in connection 7
+2018/05/20 08:49:07 [alert] 27252#0: *1064 open socket #18 left in connection 8
+2018/05/20 08:49:07 [alert] 27252#0: aborting
+2018/10/27 00:01:44 [alert] 29757#0: *6588 open socket #5 left in connection 10
+2018/10/27 00:01:44 [alert] 29757#0: aborting

@@ -1,0 +1,57 @@
+{
+  "manifest": {
+    "name": "node-loggly-bulk",
+    "description": "A client implementation for Loggly cloud Logging-as-a-Service API",
+    "version": "2.2.2",
+    "author": {
+      "name": "Charlie Robbins",
+      "email": "charlie.robbins@gmail.com"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/loggly/node-loggly-bulk.git"
+    },
+    "keywords": [
+      "cloud computing",
+      "api",
+      "logging",
+      "loggly"
+    ],
+    "dependencies": {
+      "request": ">=2.76.0 <3.0.0",
+      "moment": "^2.18.1",
+      "json-stringify-safe": "5.0.x"
+    },
+    "devDependencies": {
+      "common-style": "^3.1.0",
+      "vows": "0.8.x",
+      "nock": "~7.2.2"
+    },
+    "main": "./lib/loggly",
+    "scripts": {
+      "pretest": "common lib/**/*.js lib/*.js test/helpers.js",
+      "test": "vows test/*-test.js --spec",
+      "pretest-as-mock": "common lib/**/*.js lib/*.js test-as-mock/helpers.js",
+      "test-as-mock": "vows test-as-mock/*-test.js --spec"
+    },
+    "license": "MIT",
+    "engines": {
+      "node": ">= 0.8.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-node-loggly-bulk-2.2.2-4180fdf0ec0a490c5a2edd68cf728fd4a5f60df8/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# node-loggly-bulk\n\n[![Version npm](https://img.shields.io/npm/v/node-loggly-bulk.svg?style=flat-square)](https://www.npmjs.com/package/node-loggly-bulk)[![npm Downloads](https://img.shields.io/npm/dm/node-loggly-bulk.svg?style=flat-square)](https://www.npmjs.com/package/node-loggly-bulk)\n\n[![NPM](https://nodei.co/npm/node-loggly-bulk.png?downloads=true&downloadRank=true)](https://nodei.co/npm/node-loggly-bulk/)\n\nA client implementation for Loggly in node.js. Check out Loggly's [Node logging documentation](https://www.loggly.com/docs/nodejs-logs/) for more.\n\n## Usage\n\nThe `node-loggly-bulk` library is compliant with the [Loggly API][api]. Using `node-loggly-bulk` is easy for a variety of scenarios: logging, working with devices and inputs, searching, and facet searching.\n\n### Getting Started\nBefore we can do anything with Loggly, we have to create a client with valid credentials. We will authenticate for you automatically:\n\n``` js\n  var loggly = require('node-loggly-bulk');\n\n  var client = loggly.createClient({\n    token: \"your-really-long-input-token\",\n    subdomain: \"your-subdomain\",\n    auth: {\n      username: \"your-username\",\n      password: \"your-password\"\n    },\n    //\n    // Optional: Tag to send with EVERY log message\n    //\n    tags: ['global-tag']\n  });\n```\n\n### Logging\nThere are two ways to send log information to Loggly via node-loggly-bulk. The first is to simply call client.log with an appropriate input token:\n\n``` js\n  client.log('127.0.0.1 - Theres no place like home', function (err, result) {\n    // Do something once you've logged\n  });\n```\n\nNote that the callback in the above example is optional, if you prefer the 'fire and forget' method of logging:\n\n``` js\n  client.log('127.0.0.1 - Theres no place like home');\n```\n\n### Logging with Tags\n\nIf you're using Loggly's [tags](https://www.loggly.com/docs/tags/) functionality, simply include an array of tags as the second argument to the `log` method:\n\n``` js\n  client.log('127.0.0.1 - Theres no place like home', [ 'dorothy' ], function (err, result) {\n    // Do something once you've logged\n  });\n```\n\n*note* Tags passed into the log function will be merged with any global tags you may have defined.\n\n\n### Logging Shallow JSON Objects as a String\nIn addition to logging pure strings it is also possible to pass shallow JSON object literals (i.e. no nested objects) to client.log(..) or input.log(..) methods, which will get converted into the [Loggly recommended string representation][sending-data]. So\n\n``` js\n  var source = {\n    foo: 1,\n    bar: 2,\n    buzz: 3\n  };\n\n  input.log(source);\n```\n\nwill be logged as:\n\n```\n  foo=1,bar=2,buzz=3\n```\n\n### Logging JSON Objects\nIt is also possible to log complex objects using the new JSON capabilities of Loggly. To enable JSON functionality in the client simply add 'json: true' to the configuration:\n\n``` js\n  var config = {\n    subdomain: \"your-subdomain\",\n    auth: {\n      username: \"your-username\",\n      password: \"your-password\"\n    },\n    json: true\n  };\n```\n\nWhen the json flag is enabled, objects will be converted to JSON using JSON.stringify before being transmitted to Loggly. So\n\n``` js\n  var source = {\n    foo: 1,\n    bar: 2,\n    buzz: {\n      sheep: 'jumped',\n      times: 10\n    }\n  };\n\n  input.log(source);\n```\n\nwill be logged as:\n\n``` json\n  { \"foo\": 1, \"bar\": 2, \"buzz\": {\"sheep\": \"jumped\", \"times\": 10 }}\n```\n\n### Logging arrays\nIt is possible to send arrays, which will result in one single request to Loggly.\n\n``` js\n  input.log([ {iam:'number 1'}, {iam:'number 2'} ])\n```\n\n### Searching\n[Searching][search-api] with node-loggly-bulk is easy. All you have to do is use the search() method defined on each Loggly client:\n\n``` js\n  var util = require('util');\n\n  client.search('404', function (err, results) {\n    // Inspect the result set\n    console.dir(results.events);\n  });\n```\n\nThe search() method can also take an Object parameter that allows you to set additional search parameters such as: rows, from, until, etc.\n\n``` js\n  var util = require('util');\n\n  client.search({ query: '404', rows: 10 })\n    .run(function (err, results) {\n      // Inspect the result set\n      console.dir(results.events);\n    });\n```\n\nSee the [Loggly search guide][search] for more details on how to effectively search through your Loggly logs.\n\n## Installation\n\n### Installing npm (node package manager)\n``` bash\n  $ curl http://npmjs.org/install.sh | sh\n```\n\n### Installing node-loggly-bulk\n``` bash\n  $ npm install node-loggly-bulk\n```\n\n## Run Tests\n\n### Run Tests by sending events to your Loggly Account\nAll of the node-loggly-bulk tests are written in [vows][vows], and cover all of the use cases described above. You will need to add your Loggly username, password, subdomain, and your loggly token to test/config.json before running tests.\n\n``` js\n  {\n    \"token\": \"your-really-long-token-you-got-when-you-created-an-http-input\",\n    \"subdomain\": \"your-subdomain\",\n    \"auth\": {\n      \"username\": \"your-username\",\n      \"password\": \"your-password\"\n    }\n  }\n```\n\nOnce you have valid Loggly credentials you can run tests with [vows][vows]:\n\n``` bash\n  $ npm test\n```\n### Run Tests with Mock HTTP Request\nTo mock the HTTP requests and run test cases in your local machine you can run the following command\n```bash\n  $ npm run test-as-mock\n```\n\n#### Author: [Charlie Robbins](http://www.github.com/indexzero)\n#### Contributors: [Marak Squires](http://github.com/marak), [hij1nx](http://github.com/hij1nx), [Kord Campbell](http://loggly.com), [Erik Hedenström](http://github.com/ehedenst),\n\n[api]: http://www.loggly.com/docs/api-overview/\n[sending-data]: http://www.loggly.com/docs/api-sending-data/\n[search-api]: http://www.loggly.com/docs/api-retrieving-data/\n[search]: http://www.loggly.com/docs/search-overview/\n[vows]: http://vowsjs.org\n",
+    "licenseText": "node-loggly\n\nCopyright (c) 2010 Charlie Robbins\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/node-loggly-bulk/-/node-loggly-bulk-2.2.2.tgz#4180fdf0ec0a490c5a2edd68cf728fd4a5f60df8",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/node-loggly-bulk/-/node-loggly-bulk-2.2.2.tgz",
+    "hash": "4180fdf0ec0a490c5a2edd68cf728fd4a5f60df8",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "4180fdf0ec0a490c5a2edd68cf728fd4a5f60df8"
+}

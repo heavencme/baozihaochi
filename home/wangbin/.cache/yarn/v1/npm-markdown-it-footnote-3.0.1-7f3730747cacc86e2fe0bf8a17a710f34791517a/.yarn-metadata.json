@@ -1,0 +1,48 @@
+{
+  "manifest": {
+    "name": "markdown-it-footnote",
+    "version": "3.0.1",
+    "description": "Footnotes for markdown-it markdown parser.",
+    "keywords": [
+      "markdown-it-plugin",
+      "markdown-it",
+      "markdown",
+      "footnotes"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/markdown-it/markdown-it-footnote.git"
+    },
+    "license": "MIT",
+    "scripts": {
+      "test": "make test"
+    },
+    "devDependencies": {
+      "browserify": "*",
+      "coveralls": "^2.11.2",
+      "eslint": "~2.13.1",
+      "istanbul": "*",
+      "lodash": "*",
+      "markdown-it": "markdown-it/markdown-it",
+      "markdown-it-testgen": "~0.1.0",
+      "mocha": "*",
+      "request": "*",
+      "uglify-js": "*"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-markdown-it-footnote-3.0.1-7f3730747cacc86e2fe0bf8a17a710f34791517a/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# markdown-it-footnote\n\n[![Build Status](https://img.shields.io/travis/markdown-it/markdown-it-footnote/master.svg?style=flat)](https://travis-ci.org/markdown-it/markdown-it-footnote)\n[![NPM version](https://img.shields.io/npm/v/markdown-it-footnote.svg?style=flat)](https://www.npmjs.org/package/markdown-it-footnote)\n[![Coverage Status](https://img.shields.io/coveralls/markdown-it/markdown-it-footnote/master.svg?style=flat)](https://coveralls.io/r/markdown-it/markdown-it-footnote?branch=master)\n\n> Footnotes plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.\n\n__v2.+ requires `markdown-it` v5.+, see changelog.__\n\nMarkup is based on [pandoc](http://johnmacfarlane.net/pandoc/README.html#footnotes) definition.\n\n__Normal footnote__:\n\n```\nHere is a footnote reference,[^1] and another.[^longnote]\n\n[^1]: Here is the footnote.\n\n[^longnote]: Here's one with multiple blocks.\n\n    Subsequent paragraphs are indented to show that they\nbelong to the previous footnote.\n```\n\nhtml:\n\n```html\n<p>Here is a footnote reference,<sup class=\"footnote-ref\"><a href=\"#fn1\" id=\"fnref1\">[1]</a></sup> and another.<sup class=\"footnote-ref\"><a href=\"#fn2\" id=\"fnref2\">[2]</a></sup></p>\n<p>This paragraph won’t be part of the note, because it\nisn’t indented.</p>\n<hr class=\"footnotes-sep\">\n<section class=\"footnotes\">\n<ol class=\"footnotes-list\">\n<li id=\"fn1\"  class=\"footnote-item\"><p>Here is the footnote. <a href=\"#fnref1\" class=\"footnote-backref\">↩</a></p>\n</li>\n<li id=\"fn2\"  class=\"footnote-item\"><p>Here’s one with multiple blocks.</p>\n<p>Subsequent paragraphs are indented to show that they\nbelong to the previous footnote. <a href=\"#fnref2\" class=\"footnote-backref\">↩</a></p>\n</li>\n</ol>\n</section>\n```\n\n__Inline footnote__:\n\n```\nHere is an inline note.^[Inlines notes are easier to write, since\nyou don't have to pick an identifier and move down to type the\nnote.]\n```\n\nhtml:\n\n```html\n<p>Here is an inline note.<sup class=\"footnote-ref\"><a href=\"#fn1\" id=\"fnref1\">[1]</a></sup></p>\n<hr class=\"footnotes-sep\">\n<section class=\"footnotes\">\n<ol class=\"footnotes-list\">\n<li id=\"fn1\"  class=\"footnote-item\"><p>Inlines notes are easier to write, since\nyou don’t have to pick an identifier and move down to type the\nnote. <a href=\"#fnref1\" class=\"footnote-backref\">↩</a></p>\n</li>\n</ol>\n</section>\n```\n\n\n## Install\n\nnode.js, browser:\n\n```bash\nnpm install markdown-it-footnote --save\nbower install markdown-it-footnote --save\n```\n\n## Use\n\n```js\nvar md = require('markdown-it')()\n            .use(require('markdown-it-footnote'));\n\nmd.render(/*...*/) // See examples above\n```\n\n_Differences in browser._ If you load script directly into the page, without\npackage system, module will add itself globally as `window.markdownitFootnote`.\n\n\n## License\n\n[MIT](https://github.com/markdown-it/markdown-it-footnote/blob/master/LICENSE)\n",
+    "licenseText": "Copyright (c) 2014-2015 Vitaly Puzrin, Alex Kocharin.\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without\nrestriction, including without limitation the rights to use,\ncopy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the\nSoftware is furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/markdown-it-footnote/-/markdown-it-footnote-3.0.1.tgz#7f3730747cacc86e2fe0bf8a17a710f34791517a",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/markdown-it-footnote/-/markdown-it-footnote-3.0.1.tgz",
+    "hash": "7f3730747cacc86e2fe0bf8a17a710f34791517a",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "7f3730747cacc86e2fe0bf8a17a710f34791517a"
+}

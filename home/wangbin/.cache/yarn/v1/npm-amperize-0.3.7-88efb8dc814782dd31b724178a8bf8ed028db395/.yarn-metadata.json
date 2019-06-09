@@ -1,0 +1,76 @@
+{
+  "manifest": {
+    "name": "amperize",
+    "version": "0.3.7",
+    "description": "AMP up your plain HTML",
+    "main": "./lib/amperize",
+    "scripts": {
+      "test": "mocha $(find test -name '*.test.js')",
+      "watch": "mocha --watch $(find test -name '*.test.js')",
+      "coverage": "istanbul cover ./node_modules/.bin/_mocha -- $(find test -name '*.test.js')",
+      "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- $(find test -name '*.test.js')",
+      "semantic-release": "semantic-release"
+    },
+    "engines": {
+      "node": "^4.5.0 || ^6.9.0 || ^8.9.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jbhannah/amperize.git"
+    },
+    "keywords": [
+      "amp",
+      "html"
+    ],
+    "author": {
+      "name": "Jesse B. Hannah",
+      "email": "jesse@jbhannah.net"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jbhannah/amperize/issues"
+    },
+    "homepage": "https://github.com/jbhannah/amperize#readme",
+    "dependencies": {
+      "async": "^2.1.4",
+      "emits": "^3.0.0",
+      "got": "^7.1.0",
+      "htmlparser2": "^3.9.2",
+      "image-size": "0.6.1",
+      "lodash": "^4.17.4",
+      "uuid": "^3.0.0",
+      "validator": "^9.1.1"
+    },
+    "devDependencies": {
+      "chai": "^4.1.2",
+      "cz-conventional-changelog": "2.1.0",
+      "istanbul": "^0.4.5",
+      "mocha": "^4.0.1",
+      "semantic-release": "9.1.0",
+      "sinon": "1.17.7",
+      "sinon-chai": "^2.8.0",
+      "nock": "^9.0.2",
+      "rewire": "^2.5.2"
+    },
+    "config": {
+      "commitizen": {
+        "path": "./node_modules/cz-conventional-changelog"
+      }
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-amperize-0.3.7-88efb8dc814782dd31b724178a8bf8ed028db395/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# Amperize\n\n[![Version npm](http://img.shields.io/npm/v/amperize.svg?style=flat)](http://browsenpm.org/package/amperize)\n[![Build Status](http://img.shields.io/travis/jbhannah/amperize/master.svg?style=flat)](https://travis-ci.org/jbhannah/amperize)\n[![Dependencies](https://img.shields.io/david/jbhannah/amperize.svg?style=flat)](https://david-dm.org/jbhannah/amperize)\n[![Coverage Status](http://img.shields.io/coveralls/jbhannah/amperize/master.svg?style=flat)](https://coveralls.io/r/jbhannah/amperize?branch=master)\n\n[AMP](https://github.com/ampproject/amphtml) up your plain HTML. Replaces regular HTML tags with their equivalent\n[AMP components](https://github.com/ampproject/amphtml/blob/master/spec/amp-html-components.md).\n\n## Installation\n\n`npm install amperize`\n\n## Node.js\n\n```\nvar Amperize = require('amperize');\n\nvar html = '<img src=\"https://example.com/image.jpg\" />';\n\nvar amperize = new Amperize();\n\namperize.parse(html, function (error, result) {\n    if (error) {\n        // do something with error\n        return new Error(err);\n    }\n    // do something with result\n    return result;\n});\n\n```\n\n## Restrictions\n\nAmperize is build to convert the `<body>` part of your HTML. It will **not** create the AMP boilerplate and will **not** add the required `<script>` for each component.\n\n\n## Currently supported AMP HTML components\n\n### `<amp-img>`\n\n**[`<amp-img>` reference](https://ampbyexample.com/components/amp-img/)**\n\nAmperize will convert common `<img>` tags into AMP HTML conform `<amp-img>` tags. With the sub-dependency [`image-size`](https://github.com/image-size/image-size), Amperize will fetch the necessary `width` and `height` properties for the given image.\n\nIt will fall back to the default values `width: 600` and `height: 400`, if the dimensions couldn't get fetched.\n\nIf any other error occurs (eg. missing `src` property), Amperize will not transform the tag and return the original.\n\n### `<amp-anim>`\n\n**[`<amp-anim>` reference](https://ampbyexample.com/components/amp-anim/)**\n\nWhen the `<img>` tag that needs to be transformed, is a `.gif` animation, Amperize will convert it into `<amp-anim>`, following the same rules as for `<amp-img>`.\n\n### `<amp-iframe>`\n\n**[`<amp-iframe>` reference](https://ampbyexample.com/components/amp-iframe/)**\n\nAmperize converts iFrames like embedded videos from YouTube, Vimeo, etc. into `<amp-iframe>` tags.\n\n### `<amp-audio>`\n\n**[`<amp-audio>` reference](https://ampbyexample.com/components/amp-audio/)**\n\nConverts HTML `<audio>` into `<amp-audio>`.\n\n## Development\n\n```\ngit clone git@github.com:jbhannah/amperize.git\n\ncd amperize\n\nnpm install\n\nnpm run watch\n```\n\n`npm run watch` will restart the tests on changes.\n\n### Tests\n\nRunning the test:\n\n`npm run test`\n\nCode coverage:\n\n`npm run coverage`\n\n## Credits\n\nBorrows heavily from [Minimize](https://github.com/Swaagie/minimize), especially the constructor, `parse`,\n`amperizer`, and `traverse` functions in the `Amperize` object, and the unit\ntests. Copyright (c) 2013 Moveo - Martijn Swaagman. Used under the MIT License\n(see `LICENSE`).\n",
+    "licenseText": "The MIT License (MIT)\n\nCopyright (c) 2015 Jesse B. Hannah\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/amperize/-/amperize-0.3.7.tgz#88efb8dc814782dd31b724178a8bf8ed028db395",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/amperize/-/amperize-0.3.7.tgz",
+    "hash": "88efb8dc814782dd31b724178a8bf8ed028db395",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "88efb8dc814782dd31b724178a8bf8ed028db395"
+}

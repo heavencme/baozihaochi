@@ -1,0 +1,15 @@
+Debug Information:
+    OS: Ubuntu, v15.04
+    Node Version: v6.11.2
+    Ghost-CLI Version: 1.7.2
+    Environment: production
+    Command: 'ghost setup ssl'
+An error occurred.
+Message: 'This library (validator.js) validates strings only'
+
+Stack: TypeError: This library (validator.js) validates strings only
+    at assertString (/usr/local/lib/node_modules/ghost-cli/node_modules/validator/lib/util/assertString.js:11:11)
+    at isIP (/usr/local/lib/node_modules/ghost-cli/node_modules/validator/lib/isIP.js:20:30)
+    at NginxExtension.setupSSL (/usr/local/lib/node_modules/ghost-cli/extensions/nginx/index.js:92:13)
+    at Task.task (/usr/local/lib/node_modules/ghost-cli/lib/commands/setup.js:79:52)
+    at Promise.resolve.then.then.skipped (/usr/local/lib/node_modules/ghost-cli/node_modules/listr/lib/task.js:167:30)

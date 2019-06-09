@@ -1,0 +1,54 @@
+{
+  "manifest": {
+    "name": "aws-sdk-apis",
+    "description": "AWS SDK for JavaScript APIs",
+    "version": "3.1.10",
+    "author": {
+      "name": "Amazon Web Services",
+      "url": "http://aws.amazon.com/"
+    },
+    "homepage": "https://github.com/aws/aws-sdk-js",
+    "contributors": [
+      {
+        "name": "Loren Segal",
+        "email": "lsegal@amazon.com"
+      }
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/aws/aws-sdk-js-apis"
+    },
+    "bugs": {
+      "url": "http://github.com/aws/aws-sdk-js-apis/issues",
+      "mail": ""
+    },
+    "licenses": [
+      {
+        "type": "Apache 2.0",
+        "url": "http://github.com/aws/aws-sdk-js-apis/raw/master/LICENSE.txt"
+      }
+    ],
+    "keywords": [
+      "api",
+      "amazon",
+      "aws",
+      "sdk"
+    ],
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-aws-sdk-apis-3.1.10-4eed97f590a16cf080fd1b8d8cfdf2472de8ab0e/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# AWS SDK for JavaScript APIs Package\n\nThis package contains all of the API definitions used by the\n[aws-sdk](https://github.com/aws/aws-sdk-js) package.\n",
+    "licenseText": "Copyright 2012-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.\n\nLicensed under the Apache License, Version 2.0 (the \"License\"). You\nmay not use this file except in compliance with the License. A copy of\nthe License is located at\n\n    http://aws.amazon.com/apache2.0/\n\nor in the \"license\" file accompanying this file. This file is\ndistributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF\nANY KIND, either express or implied. See the License for the specific\nlanguage governing permissions and limitations under the License.\n",
+    "license": "Apache*"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/aws-sdk-apis/-/aws-sdk-apis-3.1.10.tgz#4eed97f590a16cf080fd1b8d8cfdf2472de8ab0e",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/aws-sdk-apis/-/aws-sdk-apis-3.1.10.tgz",
+    "hash": "4eed97f590a16cf080fd1b8d8cfdf2472de8ab0e",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "4eed97f590a16cf080fd1b8d8cfdf2472de8ab0e"
+}

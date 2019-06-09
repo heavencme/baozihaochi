@@ -1,0 +1,41 @@
+{
+  "manifest": {
+    "name": "grunt-known-options",
+    "description": "The known options used in Grunt",
+    "version": "1.1.0",
+    "author": {
+      "name": "Grunt Development Team",
+      "url": "http://gruntjs.com/development-team"
+    },
+    "homepage": "http://gruntjs.com/",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/gruntjs/grunt-known-options.git"
+    },
+    "license": "MIT",
+    "engines": {
+      "node": ">=0.10.0"
+    },
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {},
+    "files": [
+      "index.js"
+    ],
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-grunt-known-options-1.1.0-a4274eeb32fa765da5a7a3b1712617ce3b144149/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# grunt-known-options\n\nThese are the known options used in Grunt.\n\n## Installing\n\n```shell\nnpm install grunt-known-options --save\n```\n\n## Usage\n\n```js\nvar knownOptions = require('grunt-known-options');\n// You now have an object of known Grunt options.\n```\n",
+    "licenseText": "Copyright jQuery Foundation and other contributors, https://jquery.org/\n\nThis software consists of voluntary contributions made by many\nindividuals. For exact contribution history, see the revision history\navailable at https://github.com/gruntjs/grunt .\n\nThe following license applies to all parts of this software except as\ndocumented below:\n\n====\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n====\n\nAll files located in the node_modules directory are externally maintained\nlibraries used by this software which have their own licenses; we recommend\nyou read them, as their terms may differ from the terms above.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/grunt-known-options/-/grunt-known-options-1.1.0.tgz#a4274eeb32fa765da5a7a3b1712617ce3b144149",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/grunt-known-options/-/grunt-known-options-1.1.0.tgz",
+    "hash": "a4274eeb32fa765da5a7a3b1712617ce3b144149",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "a4274eeb32fa765da5a7a3b1712617ce3b144149"
+}

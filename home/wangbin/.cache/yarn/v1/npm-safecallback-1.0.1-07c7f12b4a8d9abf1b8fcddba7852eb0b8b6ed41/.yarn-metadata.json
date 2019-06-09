@@ -1,0 +1,70 @@
+{
+  "manifest": {
+    "name": "safecallback",
+    "version": "1.0.1",
+    "description": "Handle callback errors safely and easily",
+    "homepage": "https://github.com/bevry/safecallback",
+    "keywords": [
+      "callback",
+      "flow",
+      "async",
+      "errors",
+      "error"
+    ],
+    "author": {
+      "name": "Bevry Pty Ltd",
+      "email": "us@bevry.me",
+      "url": "http://bevry.me"
+    },
+    "maintainers": [
+      {
+        "name": "Benjamin Lupton",
+        "email": "b@lupton.cc",
+        "url": "https://github.com/balupton"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Benjamin Lupton",
+        "email": "b@lupton.cc",
+        "url": "https://github.com/balupton"
+      }
+    ],
+    "bugs": {
+      "url": "https://github.com/bevry/safecallback/issues"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/bevry/safecallback.git"
+    },
+    "engines": {
+      "node": ">=0.4"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "chai": "~1.5.0",
+      "joe": "~1.1.2"
+    },
+    "bin": {},
+    "scripts": {
+      "test": "node ./test/everything-test.js"
+    },
+    "main": "./lib/safecallback.js",
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-safecallback-1.0.1-07c7f12b4a8d9abf1b8fcddba7852eb0b8b6ed41/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# SafeCallback [![Build Status](https://secure.travis-ci.org/bevry/safecallback.png?branch=master)](http://travis-ci.org/bevry/safecallback)\n\nHandle asynchronous callback errors safely and easily\n\n## Install\n\n### Backend\n\n1. [Install Node.js](http://bevry.me/node/install)\n1. `npm install --save safecallback`\n\n### Frontend\n\n1. [See Browserify](http://browserify.org/)\n\n\n## Usage\n\n### JavaScript\n\n``` javascript\n// Before\nvar getFileContentsUpperCased = function(path,next){\n\trequire('fs').readFile(path, function(err,data){\n\t\tif(err)  return next(err)  // annoying check\n\t\treturn next(null, data.toString().toUpperCase())\n\t})\n}\n\n// After\nvar safeCallback = require('safecallback')\nvar getFileContentsUpperCased = function(path,next){\n\trequire('fs').readFile(path, safeCallback(next, function(err,data){\n\t\treturn next(null, data.toString().toUpperCase())\n\t}))\n}\n```\n\n### CoffeeScript\n\n``` coffeescript\n# Before\ngetFileContentsUpperCased = (path,next) ->\n\trequire('fs').readFile path, (err,data) ->\n\t\treturn next(err)  if err  # annoying check\n\t\treturn next(null, data.toString().toUpperCase())\n\n# After\nsafeCallback = require('safecallback')\ngetFileContentsUpperCased = (path,next) ->\n\trequire('fs').readFile path, safeCallback next, (err,data) ->\n\t\treturn next(null, data.toString().toUpperCase())\n```\n\n\n## History\nYou can discover the history inside the [History.md](https://github.com/bevry/safecallback/blob/master/History.md#files) file\n\n\n## License\nLicensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://creativecommons.org/licenses/MIT/)\n<br/>Copyright © 2013+ [Bevry Pty Ltd](http://bevry.me) <us@bevry.me>",
+    "licenseText": "(The MIT License)\n\nCopyright © 2013+ [Bevry Pty Ltd](http://bevry.me) <us@bevry.me>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+    "license": "MIT"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/safecallback/-/safecallback-1.0.1.tgz#07c7f12b4a8d9abf1b8fcddba7852eb0b8b6ed41",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/safecallback/-/safecallback-1.0.1.tgz",
+    "hash": "07c7f12b4a8d9abf1b8fcddba7852eb0b8b6ed41",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "07c7f12b4a8d9abf1b8fcddba7852eb0b8b6ed41"
+}

@@ -1,0 +1,68 @@
+{
+  "manifest": {
+    "name": "mock-knex",
+    "version": "0.4.0",
+    "description": "a knex mock adapter for simulating a db during testing",
+    "main": "index.js",
+    "scripts": {
+      "test": "./node_modules/lab/bin/lab -v -I __BluebirdErrorTypes__,Set,Intl,Map"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/colonyamerican/mock-knex.git"
+    },
+    "keywords": [
+      "knex",
+      "mock",
+      "bookshelf"
+    ],
+    "author": {
+      "name": "Jason Brumwell"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/colonyamerican/mock-knex/issues"
+    },
+    "homepage": "https://github.com/colonyamerican/mock-knex",
+    "devDependencies": {
+      "babel": "^6.5.2",
+      "babel-cli": "^6.11.4",
+      "babel-eslint": "^6.1.2",
+      "babel-polyfill": "^6.13.0",
+      "babel-preset-es2015": "^6.13.2",
+      "babel-preset-stage-0": "^6.5.0",
+      "babel-register": "^6.14.0",
+      "bookshelf": "^0.10.0",
+      "chai": "^3.5.0",
+      "eslint": "^3.2.2",
+      "lab": "11.0.1",
+      "mysql": "^2.11.1",
+      "pg": "^6.1.0",
+      "pg-query-stream": "^1.0.0",
+      "sqlite3": "^3.0.8"
+    },
+    "peerDependencies": {
+      "knex": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0  || ^0.13.0 || ^0.14.0"
+    },
+    "dependencies": {
+      "bluebird": "^3.4.1",
+      "lodash": "^4.14.2",
+      "semver": "^5.3.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-mock-knex-0.4.0-32c4ed97ff7cf9c86eca2400902f34e1f7f88de1/package.json",
+    "readmeFilename": "README.md",
+    "readme": "mock-knex\n=========\n\nA mock knex adapter for simulating a database during testing, especially useful when used in combination\nwith [fixture-factory](http://github.com/colonyamerican/fixture-factory).\n\n## Knex Support\n\nCurrently supports knex 0.8 through 0.11\n\n## Installation\n\n```sh\n$ npm install mock-knex --save-dev\n```\n\n## Usage\n\n### for Mocking Knex\n\n```js\nvar knex = require('knex');\nvar mockDb = require('mock-knex');\nvar db = knex({\n    client: 'sqlite',\n});\n\nmockDb.mock(db);\n\n... run tests ...\n```\n\n### for Unmocking\n\n```js\n... run tests ...\n\nmockDb.unmock(db);\n```\n\n### for Tracking queries with knex\n\n```js\n... mock knex ...\n\nvar tracker = require('mock-knex').getTracker();\n\ntracker.install();\n\ntracker.on('query', function checkResult(query) {\n  expect(query.method).to.equal('first');\n  query.response([\n    {\n      fielda : 'A',\n      fieldb : 'B'\n    },\n    {\n      fielda : 'C',\n      fieldb : 'D'\n    },\n    {\n      fielda : 'E',\n      fieldb : 'F'\n    }\n  ]);\n});\n\nknex.table('table').first('fielda', 'fieldb').then(function checkFirstArrResults(model) {\n  expect(model.fielda).to.equal('A');\n  expect(model.fieldb).to.equal('B');\n  tracker.uninstall();\n  done();\n});\n```\n\n### for Tracking queries with Bookshelf\n\n```js\n... mock knex ...\n\nvar tracker = require('mock-knex').getTracker();\n\ntracker.install();\n\ntracker.on('query', function sendResult(query) {\n  query.response([\n    {\n      id : 1,\n      foo : 'bar'\n    }\n  ]);\n});\n\nModel.forge({ id : 1 }).fetch()\n  .then(function fetchResult(model) {\n    expect(model).to.be.an.instanceof(Model);\n    expect(model.get('id')).to.equal(1);\n    expect(model.get('foo')).to.equal('bar');\n    tracker.uninstall();\n    done();\n  });\n```\n\n### for Tracking multiple successive queries\n\n```js\n... mock knex ...\n... enable tracking ...\n\ntracker.on('query', function sendResult(query, step) {\n  [\n    function firstQuery() {\n      expect(query.sql).to.equal(... some SQL string ...);\n      query.response([{id: 1}]);\n    },\n    function secondQuery() {\n      expect(query.sql).to.equal(... some SQL string ...);\n      query.response([{id: 2}]);\n    }\n  ][step - 1]();\n});\n```\n\n### More Examples?\n\nCheckout the [Tests](./test/common/tracker.js)\n\n## API\n\n### require('mock-knex')\n\n<table>\n  <thead>\n    <tr>\n      <th>Method</th>\n      <th>Arguments</th>\n      <th>Returns</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><b>mock(knex)</b></td>\n      <td rowspan=\"2\">\n        <dl>\n          <dt>knex</dt>\n          <dd><a href=\"http://knexjs.org/#Installation-client\">initialized knex client</a></dd>\n        </dl>\n      </td>\n      <td>-</td>\n      <td>Attaches mocked client to knex instance</td>\n    </tr>\n    <tr>\n      <td><b>unmock(knex)</b></td>\n      <td>-</td>\n      <td>Detaches mocked client from knex instance</td>\n    </tr>\n    <tr>\n      <td><b>getTracker()</b></td>\n      <td>-</td>\n      <td><a href=\"#tracker\">Tracker</a></td>\n      <td>Returns query <a href=\"#tracker\">Tracker</a> instance</td>\n    </tr>\n  </tbody>\n</table>\n\n### Tracker\n\nThe tracker enables you to catch and respond to queries that occur during testing, see [Test](./test/common/tracker.js) for more\nexamples.\n\n<table>\n  <thead>\n    <tr>\n      <th>Method</th>\n      <th>Arguments</th>\n      <th>Returns</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><b>install()</b></td>\n      <td>-</td>\n      <td>-</td>\n      <td>Enables query tracking mock on mocked knex client</td>\n    </tr>\n    <tr>\n      <td><a name=\"uninstall()\"></a><b>uninstall()</b></td>\n      <td>-</td>\n      <td>-</td>\n      <td>Disables query tracking mock on mocked knex client. Also resets 'step' counter.</td>\n    </tr>\n    <tr>\n      <td nowrap=\"nowrap\"><b>on('query', callback(query, step))</b></td>\n      <td>\n        <dl>\n          <dt>callback</dt>\n          <dd>\n            <span>A function that gets executed on 'query' event.</span>\n            <dl>\n              <dt>query</dt>\n              <dd><a href=\"#query-details\">Query Details</a> object</dd>\n              <dt>step</dt>\n              <dd>Query execution call counter starting from 1. Increases after every 'query' event emitting. Gets resetted on calling <a href=\"#user-content-uninstall()\">uninstall()</a>.</dd>\n            </dl>\n          </dd>\n        </dl>\n      </td>\n      <td>-</td>\n      <td>Add event listener for 'query' event. It gets esecuted for each query that should end up in database. Instead of this callback gets executed and its up to you to assert queries and mock database responses.</td>\n    </tr>\n  </tbody>\n</table>\n\n### Query Details\n\nThe object containing query details that is being sent to knex database dialect on query execution. Object properties signature matches with knex <a href=\"http://knexjs.org/#Other-toSQL\">toSQL()</a> output with additional method returns(values).\n\n<table>\n  <thead>\n    <tr>\n      <th nowrap=\"nowrap\">Property / Method</th>\n      <th>Arguments</th>\n      <th>Returns</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><b>bindings</b></td>\n      <td></td>\n      <td>Array</td>\n      <td>SQL query parameters</td>\n    </tr>\n    <tr>\n      <td><b>method</b></td>\n      <td></td>\n      <td>String</td>\n      <td>Method name to be executed (e.g. 'select', 'update', 'delete', 'commit', 'rollback' adn etc.).</td>\n    </tr>\n    <tr>\n      <td><b>sql</b></td>\n      <td></td>\n      <td>String</td>\n      <td>Parameterized SQL query string to be executed. <a href=\"http://knexjs.org/#Raw-Bindings\">Look</a></td>\n    </tr>\n    <tr>\n      <td><b>options</b></td>\n      <td></td>\n      <td>Object</td>\n      <td>Unknown purpose</td>\n    </tr>\n    <tr>\n      <td><b>transacting</b></td>\n      <td></td>\n      <td>Boolean</td>\n      <td>Whether or not the query was executed from within a transaction</td>\n    </tr>\n    <tr>\n      <td><b>reject(Error)</b></td>\n      <td>\n        <dl>\n          <dt>Error</dt>\n          <dd>\n            The Error, string or instance of Error, which represents why the result was rejected\n          </dd>\n        </dl>\n      </td>\n      <td>-</td>\n      <td>\n        Function that needs to be called to mock database query result for knex.\n      </td>\n    </tr>\n    <tr>\n      <td><b>response(values, options)</b></td>\n      <td>\n        <dl>\n          <dt>values</dt>\n          <dd>\n            An array of mock data to be returned by database. For Bookshelf this is mostly array of objects. Knex could return any type of data.\n          </dd>\n        </dl>\n        <dl>\n          <dt>options</dt>\n          <dd>\n            <dl>\n              <dt>stream</dt>\n              <dd>\n                Is this a stream response, defaults to false\n              </dd>\n            </dl>\n          </dd>\n        </dl>\n      </td>\n      <td>-</td>\n      <td>\n        Function that needs to be called to mock database query result for knex.\n      </td>\n    </tr>\n  </tbody>\n</table>\n\n## Running Tests\n\n```sh\n$ npm install\n$ docker-compose up -d\n$ make test-suite\n```\n",
+    "licenseText": "The MIT License (MIT)\n\nCopyright (c) 2014 Colony American Homes\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/mock-knex/-/mock-knex-0.4.0.tgz#32c4ed97ff7cf9c86eca2400902f34e1f7f88de1",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/mock-knex/-/mock-knex-0.4.0.tgz",
+    "hash": "32c4ed97ff7cf9c86eca2400902f34e1f7f88de1",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "32c4ed97ff7cf9c86eca2400902f34e1f7f88de1"
+}

@@ -1,0 +1,7 @@
+{
+  "instances": {
+    "localhost": {
+      "cwd": "/web/timemeetOnGhost"
+    }
+  }
+}

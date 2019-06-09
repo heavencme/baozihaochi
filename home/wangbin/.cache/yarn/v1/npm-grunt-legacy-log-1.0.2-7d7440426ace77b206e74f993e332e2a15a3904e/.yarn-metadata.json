@@ -1,0 +1,58 @@
+{
+  "manifest": {
+    "name": "grunt-legacy-log",
+    "description": "The Grunt 0.4.x logger.",
+    "version": "1.0.2",
+    "author": {
+      "name": "\"Cowboy\" Ben Alman",
+      "url": "http://benalman.com/"
+    },
+    "homepage": "http://gruntjs.com/",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/gruntjs/grunt-legacy-log.git"
+    },
+    "bugs": {
+      "url": "http://github.com/gruntjs/grunt-legacy-log/issues"
+    },
+    "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+      "test": "grunt test"
+    },
+    "engines": {
+      "node": ">= 0.10.0"
+    },
+    "keywords": [
+      "grunt",
+      "legacy"
+    ],
+    "dependencies": {
+      "colors": "~1.1.2",
+      "grunt-legacy-log-utils": "~1.0.0",
+      "hooker": "~0.2.3",
+      "lodash": "~4.17.5"
+    },
+    "devDependencies": {
+      "grunt": "^1.0.1",
+      "grunt-cli": "^1.2.0",
+      "grunt-contrib-jshint": "^1.0.0",
+      "grunt-contrib-nodeunit": "^1.0.0",
+      "grunt-contrib-watch": "^1.0.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-grunt-legacy-log-1.0.2-7d7440426ace77b206e74f993e332e2a15a3904e/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# grunt-legacy-log\n> The Grunt 0.4.x logger.\n\n[![Build Status](https://secure.travis-ci.org/gruntjs/grunt-legacy-log.png?branch=master)](http://travis-ci.org/gruntjs/grunt-legacy-log)\n[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)\n\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/grunt-legacy-log/-/grunt-legacy-log-1.0.2.tgz#7d7440426ace77b206e74f993e332e2a15a3904e",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/grunt-legacy-log/-/grunt-legacy-log-1.0.2.tgz",
+    "hash": "7d7440426ace77b206e74f993e332e2a15a3904e",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "7d7440426ace77b206e74f993e332e2a15a3904e"
+}

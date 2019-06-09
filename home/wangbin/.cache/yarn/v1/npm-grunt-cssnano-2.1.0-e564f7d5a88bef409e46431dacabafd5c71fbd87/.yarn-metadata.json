@@ -1,0 +1,68 @@
+{
+  "manifest": {
+    "name": "grunt-cssnano",
+    "version": "2.1.0",
+    "description": "Minify CSS",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/sindresorhus/grunt-cssnano.git"
+    },
+    "author": {
+      "name": "Sindre Sorhus",
+      "email": "sindresorhus@gmail.com",
+      "url": "sindresorhus.com"
+    },
+    "engines": {
+      "node": ">=0.12.0"
+    },
+    "scripts": {
+      "test": "grunt"
+    },
+    "files": [
+      "tasks"
+    ],
+    "keywords": [
+      "gruntplugin",
+      "css",
+      "style",
+      "stylesheet",
+      "minify",
+      "compress",
+      "cssnano",
+      "nano",
+      "optimize",
+      "optimise",
+      "optimization",
+      "optimisation",
+      "postcss"
+    ],
+    "dependencies": {
+      "cssnano": "^3.0.0"
+    },
+    "devDependencies": {
+      "grunt": "^1.0.1",
+      "grunt-cli": "^1.2.0",
+      "grunt-contrib-clean": "^1.0.0",
+      "grunt-contrib-nodeunit": "^1.0.0"
+    },
+    "peerDependencies": {
+      "grunt": ">=0.4.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-grunt-cssnano-2.1.0-e564f7d5a88bef409e46431dacabafd5c71fbd87/package.json",
+    "readmeFilename": "readme.md",
+    "readme": "# grunt-cssnano [![Build Status](https://travis-ci.org/sindresorhus/grunt-cssnano.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-cssnano)\n\n> Minify CSS using [`cssnano`](https://github.com/ben-eb/cssnano)\n\n*Issues with the output should be reported on the `cssnano` [issue tracker](https://github.com/ben-eb/cssnano/issues).*\n\n\n## Install\n\n```\n$ npm install --save-dev grunt-cssnano\n```\n\n\n## Usage\n\n```js\nrequire('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks\n\ngrunt.initConfig({\n\tcssnano: {\n\t\toptions: {\n\t\t\tsourcemap: true\n\t\t},\n\t\tdist: {\n\t\t\tfiles: {\n\t\t\t\t'dist/app.css': 'src/app.css'\n\t\t\t}\n\t\t}\n\t}\n});\n\ngrunt.registerTask('default', ['cssnano']);\n```\n\n\n## Options\n\nSee the `cssnano` [options](https://github.com/ben-eb/cssnano#options).\n\n\n## License\n\nMIT © [Sindre Sorhus](https://sindresorhus.com)\n",
+    "licenseText": "The MIT License (MIT)\n\nCopyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/grunt-cssnano/-/grunt-cssnano-2.1.0.tgz#e564f7d5a88bef409e46431dacabafd5c71fbd87",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/grunt-cssnano/-/grunt-cssnano-2.1.0.tgz",
+    "hash": "e564f7d5a88bef409e46431dacabafd5c71fbd87",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "e564f7d5a88bef409e46431dacabafd5c71fbd87"
+}

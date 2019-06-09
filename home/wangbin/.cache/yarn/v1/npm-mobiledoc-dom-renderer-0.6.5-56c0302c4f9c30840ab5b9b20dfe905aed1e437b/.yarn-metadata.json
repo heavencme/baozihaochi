@@ -1,0 +1,66 @@
+{
+  "manifest": {
+    "name": "mobiledoc-dom-renderer",
+    "version": "0.6.5",
+    "description": "Renders Mobiledoc input to DOM output",
+    "scripts": {
+      "start": "broccoli serve",
+      "test": "testem ci",
+      "build": "rm -rf dist/ && broccoli build dist",
+      "prepublish": "npm run build",
+      "build:tests": "rm -rf tests && BROCCOLI_ENV=tests broccoli build tests",
+      "update-changelog": "conventional-changelog -i CHANGELOG.md -r 0 -s",
+      "version": "npm run update-changelog && git add CHANGELOG.md"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/bustlelabs/mobiledoc-dom-renderer"
+    },
+    "keywords": [
+      "mobiledoc",
+      "mobiledoc-renderer",
+      "content-kit"
+    ],
+    "author": {
+      "name": "Cory Forsyth",
+      "email": "cory.forsyth@gmail.com",
+      "url": "http://coryforsyth.com/"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/bustlelabs/mobiledoc-dom-renderer/issues"
+    },
+    "files": [
+      "dist",
+      "lib",
+      "index.js"
+    ],
+    "homepage": "https://github.com/bustlelabs/mobiledoc-dom-renderer",
+    "devDependencies": {
+      "broccoli": "^0.16.3",
+      "broccoli-funnel": "^1.1.0",
+      "broccoli-merge-trees": "^0.2.1",
+      "broccoli-multi-builder": "^0.2.6",
+      "broccoli-test-builder": "^0.2.0",
+      "conventional-changelog": "^1.1.0",
+      "conventional-changelog-cli": "^1.1.1",
+      "simple-dom": "^0.3.2",
+      "testem": "^1.15.0"
+    },
+    "main": "dist/commonjs/mobiledoc-dom-renderer/index.js",
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-mobiledoc-dom-renderer-0.6.5-56c0302c4f9c30840ab5b9b20dfe905aed1e437b/package.json",
+    "readmeFilename": "README.md",
+    "readme": "## Mobiledoc DOM Renderer [![Build Status](https://travis-ci.org/bustlelabs/mobiledoc-dom-renderer.svg?branch=master)](https://travis-ci.org/bustlelabs/mobiledoc-dom-renderer)\n\nThis is a DOM renderer for the [Mobiledoc format](https://github.com/bustlelabs/mobiledoc-kit/blob/master/MOBILEDOC.md) used\nby [Mobiledoc-Kit](https://github.com/bustlelabs/mobiledoc-kit).\n\nTo learn more about Mobiledoc cards and renderers, see the **[Mobiledoc Cards docs](https://github.com/bustlelabs/mobiledoc-kit/blob/master/CARDS.md)**.\n\nThe renderer is a small library intended for use in browser clients.\n\n### Usage\n\n```js\nvar mobiledoc = {\n  version: \"0.3.0\",\n  markups: [\"B\"],\n  atoms: [],\n  cards: [],\n  sections: [\n    [1, 'P', [ // array of markers\n      // marker\n      [ 0,            // marker type 0 (standard text)\n        [0],          // open markups (by index)\n        0,            // close count\n        'hello world'\n      ]\n    ]\n  ]\n};\nvar renderer = new MobiledocDOMRenderer({cards: []});\nvar rendered = renderer.render(mobiledoc);\nvar result = rendered.result;\ndocument.getElementById('output').appendChild(result);\n// renders <div><p><b>hello world</b></b></div>\n// into 'output' element\n```\n\nThe Renderer constructor accepts a single object with the following optional properties:\n\n  * `cards` [array] - The list of card objects that the renderer may encounter in the mobiledoc\n  * `atoms` [array] - The list of atom objects that the renderer may encounter in the mobiledoc\n  * `cardOptions` [object] - Options to pass to cards and atoms when they are rendered\n  * `unknownCardHandler` [function] - Will be called when any unknown card is enountered\n  * `unknownAtomHandler` [function] - Will be called when any unknown atom is enountered\n  * `sectionElementRenderer` [object] - A map of hooks for section element rendering.\n    * Valid keys are P, H1, H2, H3, H4, H5, H6, BLOCKQUOTE, ASIDE\n    * Arguments are `tagName, dom`\n    * A valid value is a function that returns an element\n  * `markupElementRenderer` [object] - A map of hooks for inline element rendering.\n    * Valid keys are B, I, STRONG, EM, A, U, SUB, SUP, S, CODE\n    * Arguments are `tagName, dom, attributes={}`\n    * A valid value is a function that returns an element\n  * `dom` [object] - A native or [SimpleDOM](https://github.com/krisselden/simple-dom)\n    implementation of the DOM.\n\nThe return value from `renderer.render(mobiledoc)` is an object with two properties:\n  * `result` [DOM Node] - The rendered result\n  * `teardown` [function] - When called, this function will tear down the rendered mobiledoc and call any teardown handlers that were registered by cards when they were rendered\n\n#### Rendering HTML\n\nIn a browser, rendering to HTML is simple:\n\n```js\nvar renderer = new MobiledocDOMRenderer();\nvar rendered = renderer.render(mobiledoc);\nvar html = rendered.result.outerHTML;\n```\n\nHowever on the server in Node.js, native DOM APIs are not available. To make\nserver-rendering easy, this DOM\nrenderer is [SimpleDOM](https://github.com/krisselden/simple-dom)\ncompatible. You may pass an instance of a SimpleDOM document and serialize\nits output. For example:\n\n```js\nvar renderer = new MobiledocDOMRenderer({\n  dom: new SimpleDOM.Document()\n});\nvar rendered = renderer.render(mobiledoc);\nvar serializer = new SimpleDOM.HTMLSerializer([]);\nvar html = serializer.serializeChildren(rendered.result);\n```\n\nThis usage of the DOM renderer for rendering HTML has the advantage of allowing\ndevelopers to easily implement cards that work in a server and client context.\n\n#### sectionElementRenderer\n\nUse this renderer option to customize what element is used when rendering\na section.\n\n```\nvar renderer = new MobiledocDOMRenderer({\n  sectionElementRenderer: {\n    P: function(_, dom) { return dom.createElement('span'); },\n    H1: function(_, dom) { return dom.createElement('h2'); },\n    H2: function(tagName, dom) {\n      var element = dom.createElement(tagName);\n      element.setAttribute('class', 'subheadline');\n      return element;\n    }\n    /* Valid keys are P, H1, H2, H3, H4, H5, H6, BLOCKQUOTE, ASIDE */\n  }\n});\nvar rendered = renderer.render(mobiledoc);\n```\n\n#### markupElementRenderer\n\nUse this renderer option to customize what inline tags are used when rendering\na section's content.\n\n```\nvar renderer = new MobiledocDOMRenderer({\n  markupElementRenderer: {\n    B: function(_, dom) { return dom.createElement('strong'); },\n    A: function(tagName, dom, attrs={}) {\n      let element = dom.createElement(tagName);\n\n      for (let attr in attrs) {\n        element.setAttribute(attr, attrs[attr]);\n      }\n\n      element.setAttribute('rel', 'nofollow');\n      return element;\n    }\n  }\n});\nvar rendered = renderer.render(mobiledoc);\n```\n\n#### Attribute Sanitization (XSS Protection)\n\nMobiledoc DOM Renderer sanitizes the `href` attribute of 'A' markups, prefixing\nthe string `unsafe:` on potentially unsafe urls. It determines an environment-\nappropriate URL protocol parser. In rare cases it may be unable to determine one\n(this can happen when running the renderer in a Node VM Sandbox, like ember-cli-\nfastboot does), and will throw in that case. To fix this, you can provide a\ncustom markupElementRenderer for the 'A' tag that will be used instead of the\ndefault.\n\n### Tests\n\n * To run tests via testem: `npm test`\n * To run tests in the browser: `npm start` and open http://localhost:4200/tests\n\n### Releasing\n\n* Use `np` (install with `npm install -g np`)\n* `np <version>` (e.g. `np 0.5.2`)\n* `git push --tags`\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/mobiledoc-dom-renderer/-/mobiledoc-dom-renderer-0.6.5.tgz#56c0302c4f9c30840ab5b9b20dfe905aed1e437b",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/mobiledoc-dom-renderer/-/mobiledoc-dom-renderer-0.6.5.tgz",
+    "hash": "56c0302c4f9c30840ab5b9b20dfe905aed1e437b",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "56c0302c4f9c30840ab5b9b20dfe905aed1e437b"
+}

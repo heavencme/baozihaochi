@@ -1,0 +1,68 @@
+{
+  "manifest": {
+    "name": "grunt-update-submodules",
+    "description": "Updates git submodules",
+    "version": "0.4.1",
+    "homepage": "https://github.com/jaubourg/grunt-update-submodules",
+    "author": {
+      "name": "Julian Aubourg",
+      "email": "j@ubourg.net"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/jaubourg/grunt-update-submodules.git"
+    },
+    "bugs": {
+      "url": "https://github.com/jaubourg/grunt-update-submodules/issues"
+    },
+    "licenses": [
+      {
+        "type": "MIT",
+        "url": "https://github.com/jaubourg/grunt-update-submodules/blob/master/LICENSE-MIT"
+      }
+    ],
+    "main": "Gruntfile.js",
+    "bin": {
+      "grunt-update-submodules": "bin/grunt-update-submodules"
+    },
+    "engines": {
+      "node": ">= 0.10.0"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "coveralls": "2.10.0",
+      "grunt": "0.4.4",
+      "grunt-contrib-jshint": "0.10.0",
+      "grunt-jscoverage": "0.1.0",
+      "grunt-jscs-checker": " 0.4.3",
+      "grunt-shell": "0.7.0",
+      "load-grunt-tasks": "0.4.0",
+      "nodeunit": "0.8.7",
+      "wrench": "1.5.8"
+    },
+    "scripts": {
+      "test": "grunt"
+    },
+    "keywords": [
+      "git",
+      "gruntplugin",
+      "submodule",
+      "update"
+    ],
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-grunt-update-submodules-0.4.1-46c485fe6413cc0bdd6988aa2803c4e7d997c366/package.json",
+    "readmeFilename": "README.md",
+    "readme": "[![Build Status](https://travis-ci.org/jaubourg/grunt-update-submodules.svg?branch=master)](https://travis-ci.org/jaubourg/grunt-update-submodules)\n[![Coverage Status](https://img.shields.io/coveralls/jaubourg/grunt-update-submodules.svg)](https://coveralls.io/r/jaubourg/grunt-update-submodules)\n[![Dependency Status](https://david-dm.org/jaubourg/grunt-update-submodules.svg)](https://david-dm.org/jaubourg/grunt-update-submodules)\n[![devDependency Status](https://david-dm.org/jaubourg/grunt-update-submodules/dev-status.svg)](https://david-dm.org/jaubourg/grunt-update-submodules#info=devDependencies)\n[![Gittip](https://img.shields.io/gittip/jaubourg.svg)](https://www.gittip.com/jaubourg/)\n\n[![NPM](https://nodei.co/npm/grunt-update-submodules.png?downloads=true&stars=true)](https://www.npmjs.org/package/grunt-update-submodules)\n# grunt-update-submodules\n\n[Grunt](http://gruntjs.com/) task to update git submodules.\n\n## Installing\n\nInstall and add to dependencies.\n```sh\nnpm install grunt-update-submodules --save-dev\n```\n\nLoad the task in `Gruntfile.js`.\n```javascript\ntask.loadNpmTasks( \"grunt-update-submodules\" );\n```\n\n## Usage\n\n```javascript\ngrunt.initConfig({\n\t\"update_submodules\": {\n\t\tdefault: {\n\t\t\toptions: {\n\t\t\t\t// default command line parameters will be used: --init --recursive\n\t\t\t}\n\t\t},\n\t\twithCustomParameters: {\n\t\t\toptions: {\n\t\t\t\tparams: \"--force\" // specifies your own command-line parameters\n\t\t\t}\n\t\t},\n\t\twithNoParameter: {\n\t\t\toptions: {\n\t\t\t\tparams: false // blanks command-line parameters\n\t\t\t}\n\t\t}\n\t}\n});\n```\n\n## License\n\nCopyright (c) 2012 - 2014 [Julian Aubourg](mailto:j@ubourg.net)\nLicensed under the [MIT license](https://raw.githubusercontent.com/jaubourg/grunt-update-submodules/master/LICENSE-MIT).\n",
+    "license": "MIT"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/grunt-update-submodules/-/grunt-update-submodules-0.4.1.tgz#46c485fe6413cc0bdd6988aa2803c4e7d997c366",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/grunt-update-submodules/-/grunt-update-submodules-0.4.1.tgz",
+    "hash": "46c485fe6413cc0bdd6988aa2803c4e7d997c366",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "46c485fe6413cc0bdd6988aa2803c4e7d997c366"
+}

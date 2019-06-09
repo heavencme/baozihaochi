@@ -1,0 +1,42 @@
+{
+  "manifest": {
+    "name": "underscore",
+    "description": "JavaScript's functional programming helper library.",
+    "homepage": "http://documentcloud.github.com/underscore/",
+    "keywords": [
+      "util",
+      "functional",
+      "server",
+      "client",
+      "browser"
+    ],
+    "author": {
+      "name": "Jeremy Ashkenas",
+      "email": "jeremy@documentcloud.org"
+    },
+    "contributors": [],
+    "dependencies": [],
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/documentcloud/underscore.git"
+    },
+    "main": "underscore.js",
+    "version": "1.1.7",
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-underscore-1.1.7-40bab84bad19d230096e8d6ef628bff055d83db0/package.json",
+    "readmeFilename": "README",
+    "readme": "                   __                                                         \n                  /\\ \\                                                         __           \n __  __    ___    \\_\\ \\     __   _ __   ____    ___    ___   _ __    __       /\\_\\    ____  \n/\\ \\/\\ \\ /' _ `\\  /'_  \\  /'__`\\/\\  __\\/ ,__\\  / ___\\ / __`\\/\\  __\\/'__`\\     \\/\\ \\  /',__\\ \n\\ \\ \\_\\ \\/\\ \\/\\ \\/\\ \\ \\ \\/\\  __/\\ \\ \\//\\__, `\\/\\ \\__//\\ \\ \\ \\ \\ \\//\\  __/  __  \\ \\ \\/\\__, `\\\n \\ \\____/\\ \\_\\ \\_\\ \\___,_\\ \\____\\\\ \\_\\\\/\\____/\\ \\____\\ \\____/\\ \\_\\\\ \\____\\/\\_\\ _\\ \\ \\/\\____/\n  \\/___/  \\/_/\\/_/\\/__,_ /\\/____/ \\/_/ \\/___/  \\/____/\\/___/  \\/_/ \\/____/\\/_//\\ \\_\\ \\/___/ \n                                                                              \\ \\____/      \n                                                                               \\/___/\n\nUnderscore is a utility-belt library for JavaScript that provides \nsupport for the usual functional suspects (each, map, reduce, filter...) \nwithout extending any core JavaScript objects.\n\nFor Docs, License, Tests, and pre-packed downloads, see:\nhttp://documentcloud.github.com/underscore/\n\nMany thanks to our contributors:\nhttps://github.com/documentcloud/underscore/contributors\n",
+    "licenseText": "Copyright (c) 2011 Jeremy Ashkenas, DocumentCloud\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without\nrestriction, including without limitation the rights to use,\ncopy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the\nSoftware is furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE.",
+    "license": "MIT"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/underscore/-/underscore-1.1.7.tgz#40bab84bad19d230096e8d6ef628bff055d83db0",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/underscore/-/underscore-1.1.7.tgz",
+    "hash": "40bab84bad19d230096e8d6ef628bff055d83db0",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "40bab84bad19d230096e8d6ef628bff055d83db0"
+}

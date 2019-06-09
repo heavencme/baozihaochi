@@ -1,0 +1,331 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'ghost' ]
+2 info using npm@6.4.1
+3 info using node@v11.0.0
+4 verbose npm-session 4f672bb5f0886f12
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 http fetch GET 200 https://registry.npmjs.org/ghost 5787ms
+8 silly pacote tag manifest for ghost@latest fetched in 5842ms
+9 timing stage:loadCurrentTree Completed in 6042ms
+10 silly install loadIdealTree
+11 silly install cloneCurrentTreeToIdealTree
+12 timing stage:loadIdealTree:cloneCurrentTree Completed in 1ms
+13 silly install loadShrinkwrap
+14 timing stage:loadIdealTree:loadShrinkwrap Completed in 0ms
+15 silly install loadAllDepsIntoIdealTree
+16 silly resolveWithNewModule ghost@2.3.0 checking installable status
+17 http fetch GET 200 https://registry.npmjs.org/@nexes%2fnql 1482ms
+18 silly pacote version manifest for @nexes/nql@0.1.0 fetched in 1487ms
+19 silly resolveWithNewModule @nexes/nql@0.1.0 checking installable status
+20 http fetch GET 200 https://registry.npmjs.org/bson-objectid 716ms
+21 silly pacote version manifest for bson-objectid@1.2.3 fetched in 719ms
+22 silly resolveWithNewModule bson-objectid@1.2.3 checking installable status
+23 http fetch GET 304 https://registry.npmjs.org/chalk 23ms (from cache)
+24 silly pacote version manifest for chalk@1.1.3 fetched in 25ms
+25 silly resolveWithNewModule chalk@1.1.3 checking installable status
+26 http fetch GET 200 https://registry.npmjs.org/cheerio 18ms
+27 http fetch GET 200 https://registry.npmjs.org/cheerio/-/cheerio-0.22.0.tgz 23ms
+28 silly pacote version manifest for cheerio@0.22.0 fetched in 46ms
+29 silly resolveWithNewModule cheerio@0.22.0 checking installable status
+30 http fetch GET 200 https://registry.npmjs.org/compression 14ms
+31 silly pacote version manifest for compression@1.7.2 fetched in 17ms
+32 silly resolveWithNewModule compression@1.7.2 checking installable status
+33 http fetch GET 200 https://registry.npmjs.org/connect-slashes 27ms
+34 silly pacote version manifest for connect-slashes@1.3.1 fetched in 29ms
+35 silly resolveWithNewModule connect-slashes@1.3.1 checking installable status
+36 http fetch GET 200 https://registry.npmjs.org/cookie-session 14ms
+37 silly pacote version manifest for cookie-session@1.3.2 fetched in 17ms
+38 silly resolveWithNewModule cookie-session@1.3.2 checking installable status
+39 http fetch GET 200 https://registry.npmjs.org/cors 18ms
+40 silly pacote version manifest for cors@2.8.4 fetched in 21ms
+41 silly resolveWithNewModule cors@2.8.4 checking installable status
+42 http fetch GET 200 https://registry.npmjs.org/csv-parser 539ms
+43 silly pacote version manifest for csv-parser@1.12.1 fetched in 542ms
+44 silly resolveWithNewModule csv-parser@1.12.1 checking installable status
+45 http fetch GET 200 https://registry.npmjs.org/downsize 705ms
+46 silly pacote version manifest for downsize@0.0.8 fetched in 707ms
+47 silly resolveWithNewModule downsize@0.0.8 checking installable status
+48 http fetch GET 304 https://registry.npmjs.org/express 53ms (from cache)
+49 silly pacote version manifest for express@4.16.3 fetched in 59ms
+50 silly resolveWithNewModule express@4.16.3 checking installable status
+51 http fetch GET 304 https://registry.npmjs.org/express-brute 700ms (from cache)
+52 silly pacote version manifest for express-brute@1.0.1 fetched in 701ms
+53 silly resolveWithNewModule express-brute@1.0.1 checking installable status
+54 http fetch GET 304 https://registry.npmjs.org/express-hbs 550ms (from cache)
+55 silly pacote version manifest for express-hbs@1.0.4 fetched in 552ms
+56 silly resolveWithNewModule express-hbs@1.0.4 checking installable status
+57 http fetch GET 200 https://registry.npmjs.org/express-query-boolean 696ms
+58 silly pacote version manifest for express-query-boolean@2.0.0 fetched in 698ms
+59 silly resolveWithNewModule express-query-boolean@2.0.0 checking installable status
+60 http fetch GET 200 https://registry.npmjs.org/express-session 15ms
+61 http fetch GET 200 https://registry.npmjs.org/express-session/-/express-session-1.15.6.tgz 18ms
+62 silly pacote version manifest for express-session@1.15.6 fetched in 36ms
+63 silly resolveWithNewModule express-session@1.15.6 checking installable status
+64 http fetch GET 304 https://registry.npmjs.org/extract-zip 16ms (from cache)
+65 silly pacote version manifest for extract-zip@1.6.7 fetched in 18ms
+66 silly resolveWithNewModule extract-zip@1.6.7 checking installable status
+67 http fetch GET 304 https://registry.npmjs.org/fs-extra 21ms (from cache)
+68 silly pacote version manifest for fs-extra@3.0.1 fetched in 23ms
+69 silly resolveWithNewModule fs-extra@3.0.1 checking installable status
+70 http fetch GET 200 https://registry.npmjs.org/ghost-gql 704ms
+71 silly pacote version manifest for ghost-gql@0.0.11 fetched in 707ms
+72 silly resolveWithNewModule ghost-gql@0.0.11 checking installable status
+73 http fetch GET 304 https://registry.npmjs.org/ghost-ignition 708ms (from cache)
+74 silly pacote version manifest for ghost-ignition@2.9.6 fetched in 712ms
+75 silly resolveWithNewModule ghost-ignition@2.9.6 checking installable status
+76 http fetch GET 304 https://registry.npmjs.org/ghost-storage-base 704ms (from cache)
+77 silly pacote version manifest for ghost-storage-base@0.0.3 fetched in 707ms
+78 silly resolveWithNewModule ghost-storage-base@0.0.3 checking installable status
+79 http fetch GET 304 https://registry.npmjs.org/glob 26ms (from cache)
+80 silly pacote version manifest for glob@5.0.15 fetched in 30ms
+81 silly resolveWithNewModule glob@5.0.15 checking installable status
+82 http fetch GET 304 https://registry.npmjs.org/got 16ms (from cache)
+83 silly pacote version manifest for got@7.1.0 fetched in 20ms
+84 silly resolveWithNewModule got@7.1.0 checking installable status
+85 http fetch GET 200 https://registry.npmjs.org/gscan 699ms
+86 silly pacote version manifest for gscan@2.2.1 fetched in 703ms
+87 silly resolveWithNewModule gscan@2.2.1 checking installable status
+88 http fetch GET 200 https://registry.npmjs.org/html-to-text 721ms
+89 silly pacote version manifest for html-to-text@3.3.0 fetched in 728ms
+90 silly resolveWithNewModule html-to-text@3.3.0 checking installable status
+91 http fetch GET 304 https://registry.npmjs.org/image-size 16ms (from cache)
+92 silly pacote version manifest for image-size@0.6.3 fetched in 19ms
+93 silly resolveWithNewModule image-size@0.6.3 checking installable status
+94 http fetch GET 200 https://registry.npmjs.org/intl 15ms
+95 silly pacote version manifest for intl@1.2.5 fetched in 18ms
+96 silly resolveWithNewModule intl@1.2.5 checking installable status
+97 http fetch GET 200 https://registry.npmjs.org/intl-messageformat 12ms
+98 silly pacote version manifest for intl-messageformat@1.3.0 fetched in 18ms
+99 silly resolveWithNewModule intl-messageformat@1.3.0 checking installable status
+100 http fetch GET 304 https://registry.npmjs.org/js-yaml 15ms (from cache)
+101 silly pacote version manifest for js-yaml@3.12.0 fetched in 23ms
+102 silly resolveWithNewModule js-yaml@3.12.0 checking installable status
+103 http fetch GET 200 https://registry.npmjs.org/jsonpath 708ms
+104 silly pacote version manifest for jsonpath@1.0.0 fetched in 710ms
+105 silly resolveWithNewModule jsonpath@1.0.0 checking installable status
+106 http fetch GET 304 https://registry.npmjs.org/knex 19ms (from cache)
+107 silly pacote version manifest for knex@0.14.6 fetched in 28ms
+108 silly resolveWithNewModule knex@0.14.6 checking installable status
+109 http fetch GET 200 https://registry.npmjs.org/knex-migrator 704ms
+110 silly pacote version manifest for knex-migrator@3.2.3 fetched in 707ms
+111 silly resolveWithNewModule knex-migrator@3.2.3 checking installable status
+112 http fetch GET 304 https://registry.npmjs.org/lodash 22ms (from cache)
+113 silly pacote version manifest for lodash@4.17.10 fetched in 24ms
+114 silly resolveWithNewModule lodash@4.17.10 checking installable status
+115 http fetch GET 200 https://registry.npmjs.org/markdown-it 15ms
+116 silly pacote version manifest for markdown-it@8.4.1 fetched in 19ms
+117 silly resolveWithNewModule markdown-it@8.4.1 checking installable status
+118 http fetch GET 200 https://registry.npmjs.org/markdown-it-footnote 1144ms
+119 silly pacote version manifest for markdown-it-footnote@3.0.1 fetched in 1146ms
+120 silly resolveWithNewModule markdown-it-footnote@3.0.1 checking installable status
+121 http fetch GET 200 https://registry.npmjs.org/markdown-it-lazy-headers 27ms
+122 silly pacote version manifest for markdown-it-lazy-headers@0.1.3 fetched in 30ms
+123 silly resolveWithNewModule markdown-it-lazy-headers@0.1.3 checking installable status
+124 http fetch GET 200 https://registry.npmjs.org/markdown-it-mark 561ms
+125 silly pacote version manifest for markdown-it-mark@2.0.0 fetched in 564ms
+126 silly resolveWithNewModule markdown-it-mark@2.0.0 checking installable status
+127 http fetch GET 200 https://registry.npmjs.org/mobiledoc-dom-renderer 718ms
+128 silly pacote version manifest for mobiledoc-dom-renderer@0.6.5 fetched in 720ms
+129 silly resolveWithNewModule mobiledoc-dom-renderer@0.6.5 checking installable status
+130 http fetch GET 304 https://registry.npmjs.org/moment 35ms (from cache)
+131 silly pacote version manifest for moment@2.22.2 fetched in 38ms
+132 silly resolveWithNewModule moment@2.22.2 checking installable status
+133 http fetch GET 200 https://registry.npmjs.org/moment-timezone 15ms
+134 silly pacote version manifest for moment-timezone@0.5.21 fetched in 17ms
+135 silly resolveWithNewModule moment-timezone@0.5.21 checking installable status
+136 http fetch GET 304 https://registry.npmjs.org/multer 17ms (from cache)
+137 silly pacote version manifest for multer@1.3.1 fetched in 19ms
+138 silly resolveWithNewModule multer@1.3.1 checking installable status
+139 http fetch GET 304 https://registry.npmjs.org/mysql 16ms (from cache)
+140 silly pacote version manifest for mysql@2.15.0 fetched in 18ms
+141 silly resolveWithNewModule mysql@2.15.0 checking installable status
+142 http fetch GET 304 https://registry.npmjs.org/nconf 17ms (from cache)
+143 silly pacote version manifest for nconf@0.10.0 fetched in 19ms
+144 silly resolveWithNewModule nconf@0.10.0 checking installable status
+145 http fetch GET 200 https://registry.npmjs.org/netjet 693ms
+146 silly pacote version manifest for netjet@1.3.0 fetched in 696ms
+147 silly resolveWithNewModule netjet@1.3.0 checking installable status
+148 http fetch GET 200 https://registry.npmjs.org/nodemailer 17ms
+149 http fetch GET 200 https://registry.npmjs.org/nodemailer/-/nodemailer-0.7.1.tgz 21ms
+150 silly pacote version manifest for nodemailer@0.7.1 fetched in 43ms
+151 warn deprecated nodemailer@0.7.1: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/
+152 silly resolveWithNewModule nodemailer@0.7.1 checking installable status
+153 http fetch GET 200 https://registry.npmjs.org/oauth2orize 16ms
+154 silly pacote version manifest for oauth2orize@1.11.0 fetched in 20ms
+155 silly resolveWithNewModule oauth2orize@1.11.0 checking installable status
+156 silly fetchPackageMetaData error for amperize@0.3.7 request to https://registry.npmjs.org/amperize failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
+157 silly fetchPackageMetaData error for analytics-node@2.4.1 request to https://registry.npmjs.org/analytics-node failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
+158 http fetch GET 200 https://registry.npmjs.org/passport 20ms
+159 http fetch GET 200 https://registry.npmjs.org/passport/-/passport-0.4.0.tgz 14ms
+160 silly pacote version manifest for passport@0.4.0 fetched in 37ms
+161 silly resolveWithNewModule passport@0.4.0 checking installable status
+162 http fetch GET 200 https://registry.npmjs.org/passport-oauth2-client-password 704ms
+163 silly pacote version manifest for passport-oauth2-client-password@0.1.2 fetched in 706ms
+164 silly resolveWithNewModule passport-oauth2-client-password@0.1.2 checking installable status
+165 http fetch GET 200 https://registry.npmjs.org/path-match 682ms
+166 silly pacote version manifest for path-match@1.2.4 fetched in 684ms
+167 silly resolveWithNewModule path-match@1.2.4 checking installable status
+168 http fetch GET 200 https://registry.npmjs.org/rss 751ms
+169 silly pacote version manifest for rss@1.2.2 fetched in 753ms
+170 silly resolveWithNewModule rss@1.2.2 checking installable status
+171 http fetch GET 200 https://registry.npmjs.org/sanitize-html 13ms
+172 silly pacote version manifest for sanitize-html@1.18.2 fetched in 16ms
+173 silly resolveWithNewModule sanitize-html@1.18.2 checking installable status
+174 http fetch GET 304 https://registry.npmjs.org/semver 27ms (from cache)
+175 silly pacote version manifest for semver@5.5.0 fetched in 28ms
+176 silly resolveWithNewModule semver@5.5.0 checking installable status
+177 http fetch GET 200 https://registry.npmjs.org/simple-dom 702ms
+178 silly pacote version manifest for simple-dom@0.3.2 fetched in 704ms
+179 silly resolveWithNewModule simple-dom@0.3.2 checking installable status
+180 http fetch GET 200 https://registry.npmjs.org/simple-html-tokenizer 569ms
+181 silly pacote version manifest for simple-html-tokenizer@0.5.5 fetched in 571ms
+182 silly resolveWithNewModule simple-html-tokenizer@0.5.5 checking installable status
+183 http fetch GET 304 https://registry.npmjs.org/superagent 17ms (from cache)
+184 silly pacote version manifest for superagent@3.8.3 fetched in 20ms
+185 silly resolveWithNewModule superagent@3.8.3 checking installable status
+186 http fetch GET 200 https://registry.npmjs.org/unidecode 538ms
+187 silly pacote version manifest for unidecode@0.1.8 fetched in 541ms
+188 silly resolveWithNewModule unidecode@0.1.8 checking installable status
+189 http fetch GET 304 https://registry.npmjs.org/uuid 18ms (from cache)
+190 silly pacote version manifest for uuid@3.3.2 fetched in 20ms
+191 silly resolveWithNewModule uuid@3.3.2 checking installable status
+192 http fetch GET 304 https://registry.npmjs.org/validator 27ms (from cache)
+193 silly pacote version manifest for validator@6.3.0 fetched in 29ms
+194 silly resolveWithNewModule validator@6.3.0 checking installable status
+195 http fetch GET 304 https://registry.npmjs.org/xml 18ms (from cache)
+196 silly pacote version manifest for xml@1.0.1 fetched in 19ms
+197 silly resolveWithNewModule xml@1.0.1 checking installable status
+198 http fetch GET 200 https://registry.npmjs.org/sharp 13ms
+199 silly pacote version manifest for sharp@0.20.7 fetched in 16ms
+200 silly resolveWithNewModule sharp@0.20.7 checking installable status
+201 http fetch GET 304 https://registry.npmjs.org/sqlite3 17ms (from cache)
+202 silly pacote version manifest for sqlite3@4.0.1 fetched in 20ms
+203 silly resolveWithNewModule sqlite3@4.0.1 checking installable status
+204 silly fetchPackageMetaData error for archiver@1.3.0 request to https://registry.npmjs.org/archiver failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
+205 silly fetchPackageMetaData error for bcryptjs@2.4.3 request to https://registry.npmjs.org/bcryptjs failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
+206 http fetch GET 200 https://registry.npmjs.org/passport-http-bearer 20045ms
+207 http fetch GET 304 https://registry.npmjs.org/body-parser 45084ms (from cache)
+208 http fetch GET 304 https://registry.npmjs.org/bluebird 45089ms (from cache)
+209 silly pacote version manifest for passport-http-bearer@1.0.1 fetched in 20052ms
+210 silly resolveWithNewModule passport-http-bearer@1.0.1 checking installable status
+211 silly pacote version manifest for body-parser@1.18.3 fetched in 45092ms
+212 silly resolveWithNewModule body-parser@1.18.3 checking installable status
+213 silly pacote version manifest for bluebird@3.5.1 fetched in 45094ms
+214 silly resolveWithNewModule bluebird@3.5.1 checking installable status
+215 http fetch GET 200 https://registry.npmjs.org/bookshelf-relations 45595ms
+216 silly pacote version manifest for bookshelf-relations@0.2.1 fetched in 45598ms
+217 silly resolveWithNewModule bookshelf-relations@0.2.1 checking installable status
+218 http fetch GET 200 https://registry.npmjs.org/brute-knex 45761ms
+219 silly pacote version manifest for brute-knex@3.0.0 fetched in 45768ms
+220 silly resolveWithNewModule brute-knex@3.0.0 checking installable status
+221 http fetch GET 200 https://registry.npmjs.org/bookshelf 45787ms
+222 silly pacote version manifest for bookshelf@0.13.3 fetched in 45793ms
+223 silly resolveWithNewModule bookshelf@0.13.3 checking installable status
+224 http fetch GET 200 https://github.com/kevinansfield/oembed-parser/tarball/80af3dc41059bcc0caa80db010265a811a4267c7 32103ms
+225 silly pacote remote manifest for oembed-parser@https://github.com/kevinansfield/oembed-parser/tarball/80af3dc41059bcc0caa80db010265a811a4267c7 fetched in 32109ms
+226 silly resolveWithNewModule oembed-parser@1.1.1 checking installable status
+227 timing stage:rollbackFailedOptional Completed in 0ms
+228 timing stage:runTopLevelLifecycles Completed in 52426ms
+229 silly saveTree timemeetOnGhost
+229 silly saveTree └─┬ ghost@2.3.0
+229 silly saveTree   ├── @nexes/nql@0.1.0
+229 silly saveTree   ├── bluebird@3.5.1
+229 silly saveTree   ├── body-parser@1.18.3
+229 silly saveTree   ├─┬ bookshelf-relations@0.2.1
+229 silly saveTree   │ └── lodash@4.17.10
+229 silly saveTree   ├── bookshelf@0.13.3
+229 silly saveTree   ├─┬ brute-knex@3.0.0
+229 silly saveTree   │ ├── express-brute@1.0.1
+229 silly saveTree   │ └─┬ knex@0.14.6
+229 silly saveTree   │   └── uuid@3.3.2
+229 silly saveTree   ├── bson-objectid@1.2.3
+229 silly saveTree   ├── chalk@1.1.3
+229 silly saveTree   ├── cheerio@0.22.0
+229 silly saveTree   ├── compression@1.7.2
+229 silly saveTree   ├── connect-slashes@1.3.1
+229 silly saveTree   ├── cookie-session@1.3.2
+229 silly saveTree   ├── cors@2.8.4
+229 silly saveTree   ├── csv-parser@1.12.1
+229 silly saveTree   ├── downsize@0.0.8
+229 silly saveTree   ├── express-brute@1.0.1
+229 silly saveTree   ├── express-hbs@1.0.4
+229 silly saveTree   ├── express-query-boolean@2.0.0
+229 silly saveTree   ├── express-session@1.15.6
+229 silly saveTree   ├── express@4.16.3
+229 silly saveTree   ├── extract-zip@1.6.7
+229 silly saveTree   ├── fs-extra@3.0.1
+229 silly saveTree   ├── ghost-gql@0.0.11
+229 silly saveTree   ├─┬ ghost-ignition@2.9.6
+229 silly saveTree   │ ├── moment@2.22.2
+229 silly saveTree   │ └── nconf@0.10.0
+229 silly saveTree   ├── ghost-storage-base@0.0.3
+229 silly saveTree   ├── glob@5.0.15
+229 silly saveTree   ├── got@7.1.0
+229 silly saveTree   ├─┬ gscan@2.2.1
+229 silly saveTree   │ ├── multer@1.3.1
+229 silly saveTree   │ ├── semver@5.5.0
+229 silly saveTree   │ └── validator@6.3.0
+229 silly saveTree   ├── html-to-text@3.3.0
+229 silly saveTree   ├── image-size@0.6.3
+229 silly saveTree   ├── intl-messageformat@1.3.0
+229 silly saveTree   ├── intl@1.2.5
+229 silly saveTree   ├── js-yaml@3.12.0
+229 silly saveTree   ├── jsonpath@1.0.0
+229 silly saveTree   ├─┬ knex-migrator@3.2.3
+229 silly saveTree   │ ├── mysql@2.15.0
+229 silly saveTree   │ └── sqlite3@4.0.1
+229 silly saveTree   ├── knex@0.14.6
+229 silly saveTree   ├── lodash@4.17.10
+229 silly saveTree   ├── markdown-it-footnote@3.0.1
+229 silly saveTree   ├── markdown-it-lazy-headers@0.1.3
+229 silly saveTree   ├── markdown-it-mark@2.0.0
+229 silly saveTree   ├── markdown-it@8.4.1
+229 silly saveTree   ├── mobiledoc-dom-renderer@0.6.5
+229 silly saveTree   ├── moment-timezone@0.5.21
+229 silly saveTree   ├── moment@2.22.2
+229 silly saveTree   ├── multer@1.3.1
+229 silly saveTree   ├── mysql@2.15.0
+229 silly saveTree   ├── nconf@0.10.0
+229 silly saveTree   ├── netjet@1.3.0
+229 silly saveTree   ├── nodemailer@0.7.1
+229 silly saveTree   ├── oauth2orize@1.11.0
+229 silly saveTree   ├── oembed-parser@1.1.1
+229 silly saveTree   ├── passport-http-bearer@1.0.1
+229 silly saveTree   ├── passport-oauth2-client-password@0.1.2
+229 silly saveTree   ├── passport@0.4.0
+229 silly saveTree   ├── path-match@1.2.4
+229 silly saveTree   ├─┬ rss@1.2.2
+229 silly saveTree   │ └── xml@1.0.1
+229 silly saveTree   ├── sanitize-html@1.18.2
+229 silly saveTree   ├── semver@5.5.0
+229 silly saveTree   ├── sharp@0.20.7
+229 silly saveTree   ├── simple-dom@0.3.2
+229 silly saveTree   ├── simple-html-tokenizer@0.5.5
+229 silly saveTree   ├── sqlite3@4.0.1
+229 silly saveTree   ├── superagent@3.8.3
+229 silly saveTree   ├── unidecode@0.1.8
+229 silly saveTree   ├── uuid@3.3.2
+229 silly saveTree   ├── validator@6.3.0
+229 silly saveTree   └── xml@1.0.1
+230 verbose type system
+231 verbose stack FetchError: request to https://registry.npmjs.org/amperize failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
+231 verbose stack     at ClientRequest.req.on.err (/usr/local/lib/node_modules/npm/node_modules/node-fetch-npm/src/index.js:68:14)
+231 verbose stack     at ClientRequest.emit (events.js:182:13)
+231 verbose stack     at TLSSocket.socketErrorListener (_http_client.js:399:9)
+231 verbose stack     at TLSSocket.emit (events.js:182:13)
+231 verbose stack     at emitErrorNT (internal/streams/destroy.js:82:8)
+231 verbose stack     at emitErrorAndCloseNT (internal/streams/destroy.js:50:3)
+231 verbose stack     at process.internalTickCallback (internal/process/next_tick.js:72:19)
+232 verbose cwd /web/timemeetOnGhost
+233 verbose Linux 3.19.0-84-generic
+234 verbose argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "ghost"
+235 verbose node v11.0.0
+236 verbose npm  v6.4.1
+237 error code EAI_AGAIN
+238 error errno EAI_AGAIN
+239 error request to https://registry.npmjs.org/amperize failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
+240 verbose exit [ 1, true ]

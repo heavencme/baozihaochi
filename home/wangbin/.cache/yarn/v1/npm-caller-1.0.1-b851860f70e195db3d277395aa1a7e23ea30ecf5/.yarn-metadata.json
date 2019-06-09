@@ -1,0 +1,48 @@
+{
+  "manifest": {
+    "name": "caller",
+    "version": "1.0.1",
+    "description": "@substack's caller.js as a module",
+    "main": "index.js",
+    "files": [
+      "index.js"
+    ],
+    "scripts": {
+      "test": "tape test/*.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/totherik/caller.git"
+    },
+    "keywords": [
+      "caller",
+      "file",
+      "require"
+    ],
+    "author": {
+      "name": "Erik Toth",
+      "email": "totherik@gmail.com"
+    },
+    "license": "MIT",
+    "devDependencies": {
+      "tape": "~2.3.2"
+    },
+    "readmeFilename": "README.md",
+    "gitHead": "15bef0805246629cc89fb71ded29e674009ffc45",
+    "dependencies": {},
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-caller-1.0.1-b851860f70e195db3d277395aa1a7e23ea30ecf5/package.json",
+    "readme": "#### caller\n\nFigure out your caller (thanks to @substack).\n\n##### Initialization Time Caller\n```javascript\n// foo.js\n\nvar bar = require('bar');\n```\n\n```javascript\n// bar.js\n\nvar caller = require('caller');\nconsole.log(caller()); // `/path/to/foo.js`\n```\n\n##### Runtime Caller\n```javascript\n// foo.js\n\nvar bar = require('bar');\nbar.doWork();\n```\n\n```javascript\n// bar.js\n\nvar caller = require('caller');\n\nexports.doWork = function () {\n    console.log(caller());  // `/path/to/foo.js`\n};\n```\n\n### Depth\n\nCaller also accepts a `depth` argument for tracing back further (defaults to `1`).\n\n```javascript\n// foo.js\n\nvar bar = require('bar');\nbar.doWork();\n```\n\n```javascript\n// bar.js\n\nvar baz = require('baz');\n\nexports.doWork = function () {\n    baz.doWork();\n};\n```\n\n```javascript\n// baz.js\n\nvar caller = require('caller');\n\nexports.doWork = function () {\n    console.log(caller(2));  // `/path/to/foo.js`\n};\n```\n",
+    "licenseText": "This software is released under the MIT license:\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/caller/-/caller-1.0.1.tgz#b851860f70e195db3d277395aa1a7e23ea30ecf5",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/caller/-/caller-1.0.1.tgz",
+    "hash": "b851860f70e195db3d277395aa1a7e23ea30ecf5",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "b851860f70e195db3d277395aa1a7e23ea30ecf5"
+}

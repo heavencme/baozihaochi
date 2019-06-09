@@ -1,0 +1,41 @@
+{
+  "manifest": {
+    "name": "create-error",
+    "version": "0.3.1",
+    "description": "Simple helper for sub-classing the Error object",
+    "main": "create-error.js",
+    "scripts": {
+      "test": "mocha -R spec test/index.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/tgriesser/create-error.git"
+    },
+    "keywords": [
+      "errors"
+    ],
+    "author": {
+      "name": "Tim Griesser",
+      "url": "https://github.com/tgriesser"
+    },
+    "license": "MIT",
+    "devDependencies": {
+      "mocha": "~1.15.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-create-error-0.3.1-69810245a629e654432bf04377360003a5351a23/package.json",
+    "readmeFilename": "README.md",
+    "readme": "create-error.js\n===============\n\nA simple helper for creating subclassed errors in Javascript.\n\n[![Build Status](https://travis-ci.org/tgriesser/create-error.png)](https://travis-ci.org/tgriesser/create-error)\n\n## Use:\n\n```bash\n$ npm   install create-error\n$ bower install create-error\n```\n\n```js\nvar createError    = require('create-error');\n\nvar MyCustomError  = createError('MyCustomError');\nvar SubCustomError = createError(MyCustomError, 'CoolSubError', {messages: []});\n\nvar sub = new SubCustomError('My Message', {someVal: 'value'});\n\nsub instanceof SubCustomError // true\nsub instanceof MyCustomError  // true\nsub instanceof Error          // true\n\nassert.deepEqual(sub.messages, []) // true\nassert.equal(sub.someVal, 'value') // true\n```\n\n### createError(name, [properties])\n\nCreates a new error by specifying the name of the error to be created,\ntaking an optional hash of properties to be attached to the error class\nupon creation.\n\n### createError(Target, [name, [properties]])\n\nCreate a new error by specifying the `Target` error class we wish to inherit from,\nalong with an optional name and properties for the error. If the `name` is omitted,\nit will have the same name as the parent error.\n\n### Additional Notes:\n\nIn the browser, the function will be assigned to `window.createError`,\nand `createError.noConflict()` will restore the original `window.createError`\nif overwritten.\n\n### License\n\nMIT\n",
+    "licenseText": "Copyright (c) 2013 Tim Griesser\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without\nrestriction, including without limitation the rights to use,\ncopy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the\nSoftware is furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE."
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/create-error/-/create-error-0.3.1.tgz#69810245a629e654432bf04377360003a5351a23",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/create-error/-/create-error-0.3.1.tgz",
+    "hash": "69810245a629e654432bf04377360003a5351a23",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "69810245a629e654432bf04377360003a5351a23"
+}

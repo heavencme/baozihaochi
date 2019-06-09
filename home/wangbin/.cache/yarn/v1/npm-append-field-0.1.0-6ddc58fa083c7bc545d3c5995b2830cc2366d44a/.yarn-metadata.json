@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "name": "append-field",
+    "version": "0.1.0",
+    "license": "MIT",
+    "author": {
+      "name": "Linus Unnebäck",
+      "email": "linus@folkdatorn.se"
+    },
+    "main": "index.js",
+    "devDependencies": {
+      "mocha": "^2.2.4",
+      "standard": "^3.7.2",
+      "testdata-w3c-json-form": "^0.2.0"
+    },
+    "scripts": {
+      "test": "standard && mocha"
+    },
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/LinusU/node-append-field.git"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-append-field-0.1.0-6ddc58fa083c7bc545d3c5995b2830cc2366d44a/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# `append-field`\n\nA [W3C HTML JSON forms spec](http://www.w3.org/TR/html-json-forms/) compliant\nfield appender (for lack of a better name). Useful for people implementing\n`application/x-www-form-urlencoded` and `multipart/form-data` parsers.\n\nIt works best on objects created with `Object.create(null)`. Otherwise it might\nconflict with variables from the prototype (e.g. `hasOwnProperty`).\n\n## Installation\n\n```sh\nnpm install --save append-field\n```\n\n## Usage\n\n```javascript\nvar appendField = require('append-field')\nvar obj = Object.create(null)\n\nappendField(obj, 'pets[0][species]', 'Dahut')\nappendField(obj, 'pets[0][name]', 'Hypatia')\nappendField(obj, 'pets[1][species]', 'Felis Stultus')\nappendField(obj, 'pets[1][name]', 'Billie')\n\nconsole.log(obj)\n```\n\n```text\n{ pets:\n   [ { species: 'Dahut', name: 'Hypatia' },\n     { species: 'Felis Stultus', name: 'Billie' } ] }\n```\n\n## API\n\n### `appendField(store, key, value)`\n\nAdds the field named `key` with the value `value` to the object `store`.\n\n## License\n\nMIT\n",
+    "description": "A [W3C HTML JSON forms spec](http://www.w3.org/TR/html-json-forms/) compliant field appender (for lack of a better name). Useful for people implementing `application/x-www-form-urlencoded` and `multipart/form-data` parsers.",
+    "licenseText": "The MIT License (MIT)\n\nCopyright (c) 2015 Linus Unnebäck\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/append-field/-/append-field-0.1.0.tgz#6ddc58fa083c7bc545d3c5995b2830cc2366d44a",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/append-field/-/append-field-0.1.0.tgz",
+    "hash": "6ddc58fa083c7bc545d3c5995b2830cc2366d44a",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "6ddc58fa083c7bc545d3c5995b2830cc2366d44a"
+}

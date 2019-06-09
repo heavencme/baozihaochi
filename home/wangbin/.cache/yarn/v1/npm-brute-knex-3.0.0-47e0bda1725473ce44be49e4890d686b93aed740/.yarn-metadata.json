@@ -1,0 +1,59 @@
+{
+  "manifest": {
+    "name": "brute-knex",
+    "version": "3.0.0",
+    "description": "A Knex.js store for express-brute",
+    "keywords": [
+      "express",
+      "brute",
+      "knex"
+    ],
+    "license": "ISC",
+    "private": false,
+    "scripts": {
+      "lint": "eslint lib example.js",
+      "test": "yarn lint && mocha --report lcovonly -- test/*_spec.js"
+    },
+    "engine": {
+      "node": ">=6"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:llambda/brute-knex.git"
+    },
+    "devDependencies": {
+      "bluebird": "3.5.1",
+      "express": "4.16.3",
+      "ghost-ignition": "^2.9.1",
+      "mocha": "^5.1.1",
+      "mysql": "2.15.0",
+      "pg": "^6.1.0",
+      "sqlite3": "^3.0.7"
+    },
+    "dependencies": {
+      "eslint": "4.19.1",
+      "express-brute": "^1.0.0",
+      "knex": "0.14.6",
+      "should": "^13.2.1"
+    },
+    "main": "lib",
+    "files": [
+      "lib"
+    ],
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-brute-knex-3.0.0-47e0bda1725473ce44be49e4890d686b93aed740/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# brute-knex\n\n[![NPM Version][npm-version-image]][npm-url]\n[![NPM Downloads][npm-downloads-image]][npm-url]\n[![Node.js Version][node-image]][node-url]\n[![Build Status][travis-image]][travis-url]\n[![Dependency Status][dependencies-image]][dependencies-url]\n[![Coverage Status][coveralls-image]][coveralls-url]\n\n[![NPM][npm-image]][npm-url]\n\n## A [knex.js](http://knexjs.org/) store for [express-brute](https://github.com/AdamPflug/express-brute).\n\n### Installation\n\n  via npm:\n\n      $ npm install brute-knex\n\n### Usage\n\nRefer to the [example application](https://github.com/llambda/brute-knex/blob/master/example.js).\n\n### Options\n\n- `tablename`         Table name (default 'brute') to store records in.\n- `createTable`       Set to `false` (default `true`) to disable automatically creating `tablename` if it does not exist.\n- `knex`              knex instance to use. If not provided, defaults to a sqlite3 database named ./brute-knex.sqlite\n\n### Testing\n\n`yarn test`\n\nYou can create a custom config file in the root folder.\nTake a look at the example config, which is the fallback.\n\ne.g. `config.testing-mysql.json`\n\n[npm-version-image]: https://img.shields.io/npm/v/brute-knex.svg\n[npm-downloads-image]: https://img.shields.io/npm/dm/brute-knex.svg\n[npm-image]: https://nodei.co/npm/brute-knex.png?downloads=true&downloadRank=true&stars=true\n[npm-url]: https://npmjs.org/package/brute-knex\n[travis-image]: https://img.shields.io/travis/llambda/brute-knex/master.svg\n[travis-url]: https://travis-ci.org/llambda/brute-knex\n[dependencies-image]: https://david-dm.org/llambda/brute-knex.svg?style=flat\n[dependencies-url]: https://david-dm.org/llambda/brute-knex\n[coveralls-image]: https://img.shields.io/coveralls/llambda/brute-knex/master.svg\n[coveralls-url]: https://coveralls.io/r/llambda/brute-knex?branch=master\n[node-image]: https://img.shields.io/node/v/brute-knex.svg\n[node-url]: http://nodejs.org/download/\n[gitter-join-chat-image]: https://badges.gitter.im/Join%20Chat.svg\n[gitter-channel-url]: https://gitter.im/llambda/brute-knex\n[express-session-url]: https://github.com/expressjs/session\n[io-url]: https://iojs.org\n\n",
+    "licenseText": "Copyright (c) 2014, llambda <xxgsoftware@gmail.com>\n\nPermission to use, copy, modify, and/or distribute this software for any\npurpose with or without fee is hereby granted, provided that the above\ncopyright notice and this permission notice appear in all copies.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES\nWITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF\nMERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR\nANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES\nWHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN\nACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF\nOR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n\n~    \n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/brute-knex/-/brute-knex-3.0.0.tgz#47e0bda1725473ce44be49e4890d686b93aed740",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/brute-knex/-/brute-knex-3.0.0.tgz",
+    "hash": "47e0bda1725473ce44be49e4890d686b93aed740",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "47e0bda1725473ce44be49e4890d686b93aed740"
+}

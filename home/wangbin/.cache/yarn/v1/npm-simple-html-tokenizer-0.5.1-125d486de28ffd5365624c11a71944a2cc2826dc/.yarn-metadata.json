@@ -1,0 +1,66 @@
+{
+  "manifest": {
+    "name": "simple-html-tokenizer",
+    "version": "0.5.1",
+    "license": "MIT",
+    "description": "Simple HTML Tokenizer is a lightweight JavaScript library that can be used to tokenize the kind of HTML normally found in templates.",
+    "keywords": [
+      "html",
+      "tokenizer"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/tildeio/simple-html-tokenizer.git"
+    },
+    "main": "dist/simple-html-tokenizer.js",
+    "module": "dist/es6/index.js",
+    "types": "dist/types/index.d.ts",
+    "files": [
+      "dist",
+      "!dist/tests"
+    ],
+    "scripts": {
+      "build": "ember build",
+      "prepare": "ember build",
+      "test": "ember test && nyc qunit dist/tests/tests.js",
+      "lint": "tslint -p tsconfig.json"
+    },
+    "devDependencies": {
+      "@types/qunit": "^2.5.0",
+      "broccoli-concat": "^3.0.5",
+      "broccoli-funnel": "^2.0.1",
+      "broccoli-merge-trees": "^3.0.0",
+      "broccoli-rollup": "^2.0.0",
+      "broccoli-tslinter": "^3.0.1",
+      "broccoli-typescript-compiler": "^2.2.0",
+      "ember-cli": "^3.0.0",
+      "got": "^8.2.0",
+      "nyc": "^11.4.1",
+      "qunit": "^2.5.1",
+      "rollup-plugin-sourcemaps": "^0.4.2",
+      "tslint": "^5.9.1",
+      "typescript": "^2.7.2"
+    },
+    "ember-addon": {
+      "paths": [
+        "commands",
+        "lib/symlink-self"
+      ]
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-simple-html-tokenizer-0.5.1-125d486de28ffd5365624c11a71944a2cc2826dc/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# Simple HTML Tokenizer [![Build Status](https://travis-ci.org/tildeio/simple-html-tokenizer.svg?branch=master)](https://travis-ci.org/tildeio/simple-html-tokenizer)\n\nSimple HTML Tokenizer is a lightweight JavaScript library that can be\nused to tokenize the kind of HTML normally found in templates. It can be\nused to preprocess templates to change the behavior of some template\nelement depending upon whether the template element was found in an\nattribute or text.\n\nIt is not a full HTML5 tokenizer. It focuses on the kind of HTML that is\nused in templates: content designed to be inserted into the `<body>`\nand without `<script>` tags.\n\nIn particular, Simple HTML Tokenizer does not handle many states from\nthe [HTML5 Tokenizer Specification][1]:\n\n* Any states involving `CDATA` or `RCDATA`\n* Any states involving `<script>`\n* Any states involving `<DOCTYPE>`\n* The bogus comment state\n\nIt also passes through character references, instead of trying to\ntokenize and process them, because the preprocessed templates will\nultimately be parsed by a real browser context.\n\nAt the moment, there are some error states specified by the tokenizer\nspec that are not handled by Simple HTML Tokenizer. Ultimately, I plan\nto support all error states, as well as provide information about\ntokenizer errors in debug mode.\n\n[1]: http://www.whatwg.org/specs/web-apps/current-work/multipage/tokenization.html\n\n# Usage\n\nYou can tokenize HTML:\n\n```js\nvar tokens = HTML5Tokenizer.tokenize(\"<div id='foo' href=bar class=\\\"bat\\\">\");\n\nvar token = tokens[0];\ntoken.tagName     //=> \"div\"\ntoken.attributes  //=> [[\"id\", \"foo\"], [\"href\", \"bar\"], [\"class\", \"bat\"]]\ntoken.selfClosing //=> false\n```\n\n## Building and running the tests\n\n```bash\nnpm install\nnpm test\n```\n",
+    "licenseText": "Copyright (c) 2014 Yehuda Katz and contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies\nof the Software, and to permit persons to whom the Software is furnished to do\nso, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-0.5.1.tgz#125d486de28ffd5365624c11a71944a2cc2826dc",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-0.5.1.tgz",
+    "hash": "125d486de28ffd5365624c11a71944a2cc2826dc",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "125d486de28ffd5365624c11a71944a2cc2826dc"
+}

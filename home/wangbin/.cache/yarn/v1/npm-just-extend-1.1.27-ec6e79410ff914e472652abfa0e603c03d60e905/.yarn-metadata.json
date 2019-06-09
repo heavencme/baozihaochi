@@ -1,0 +1,47 @@
+{
+  "manifest": {
+    "name": "just-extend",
+    "version": "1.1.27",
+    "description": "extend an object",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/angus-c/just"
+    },
+    "keywords": [
+      "object",
+      "assign",
+      "clone",
+      "copy",
+      "merge",
+      "deep-copy",
+      "extend",
+      "no-dependencies",
+      "just"
+    ],
+    "author": {
+      "name": "Angus Croll"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/angus-c/just/issues"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-just-extend-1.1.27-ec6e79410ff914e472652abfa0e603c03d60e905/package.json",
+    "readmeFilename": "README.md",
+    "readme": "## just-extend\n\nPart of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  \nGuilt-free utilities for every occasion.\n\n[Try it now](http://anguscroll.com/just/just-extend)\n\n```js\nimport extend from 'just-extend';\n\nvar obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}\nobj; // {a: 4, b: 5, c: 8}\n\nvar obj = {a: 3, b: 5};\nextend({}, obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}\nobj; // {a: 3, b: 5}\n\nvar arr = [1, 2, 3];\nvar obj = {a: 3, b: 5};\nextend(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}\narr.push(4);\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4]}\n\nvar arr = [1, 2, 3];\nvar obj = {a: 3, b: 5};\nextend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}\narr.push(4);\nobj; // {a: 3, b: 5, c: [1, 2, 3]}\n\nextend({a: 4, b: 5}); // {a: 4, b: 5}\nextend({a: 4, b: 5}, 3); {a: 4, b: 5}\nextend({a: 4, b: 5}, true); {a: 4, b: 5}\nextend('hello', {a: 4, b: 5}); // throws\nextend(3, {a: 4, b: 5}); // throws\n```\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/just-extend/-/just-extend-1.1.27.tgz#ec6e79410ff914e472652abfa0e603c03d60e905",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/just-extend/-/just-extend-1.1.27.tgz",
+    "hash": "ec6e79410ff914e472652abfa0e603c03d60e905",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "ec6e79410ff914e472652abfa0e603c03d60e905"
+}

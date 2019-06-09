@@ -1,0 +1,54 @@
+{
+  "manifest": {
+    "name": "compare-ver",
+    "version": "2.0.2",
+    "description": "Compares two software version numbers (only number)",
+    "main": "index.js",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/lmtdit/compare-ver.git"
+    },
+    "scripts": {
+      "pretest": "npm install",
+      "test": "mocha tests/*.js"
+    },
+    "author": {
+      "name": "lmtdit",
+      "email": "lmtdit@gmail.com",
+      "url": "https://github.com/lmtdit"
+    },
+    "keywords": [
+      "compare",
+      "number",
+      "semver",
+      "version"
+    ],
+    "devDependencies": {
+      "karma": "^0.12.24",
+      "karma-chrome-launcher": "^0.1.5",
+      "karma-mocha": "^0.1.9",
+      "mocha": "^2.0.1",
+      "should": "^4.1.0"
+    },
+    "bugs": {
+      "url": "https://github.com/lmtdit/compare-ver/issues"
+    },
+    "homepage": "https://github.com/lmtdit/compare-ver#readme",
+    "dependencies": {},
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-compare-ver-2.0.2-8ecb8eb9dbf23ff2d87c56e74cbbb2cb7ffd9d7a/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# compare-version\n\n> Compares two software version numbers (only number)\n\n-------\n\nThis code just uses Array.shift and recursive, which means that it can run in IE 6+.\n\n## Install\n\n```bash\n$ npm install --save compare-ver\n```\n\n\n## version rules\n\n```\n{num}.{num}. …… {num}.{num}\n```\n\n*e.g:*\n```\n\"1.7\" < \"1.7.1\" < \"1.7.10\" < \"1.7.10.01\" < \"1.7.0.10.010\"\n\"1.0\" < \"1.0.1\" < \"2.0\" < \"2.0.0.1\" < \"2.0.1\"\n\"1.0.0.0\" < \"1.0.1.0\" < \"2.0.0.0\" < \"2.0.0.1\" < \"2.0.1.0\"\n```\n\n## Usage\n\n### compareVer.gt(stringA,stringB)\nReturn number 1 0 -1 -2 -3 -100\n\n- if stringA  <  stringB then return -1\n- if stringA === stringB then return 0\n- if stringA  >  stringB then return 1\n- if input error value then return < -1\n\n### compareVer.lt(stringA,stringB)\nReturn number 1 0 -1 -2 -3 -100\n\n- if stringA  <  stringB then return 1\n- if stringA === stringB then return 0\n- if stringA  >  stringB then return -1\n- if input error value then return < -1\n\n```js\nvar compareVer = require('compare-ver');\n\n//gt\nconsole.log(compareVer.gt(\"0.0.2\",\"0.0.1\")); //1\nconsole.log(compareVer.gt(\"0.9.1\",\"0.9.1\")); //0\n\n//lt\nconsole.log(compareVer.lt(\"0.0.2\",\"0.0.1\")); //-1\nconsole.log(compareVer.lt(\"0.9.1\",\"0.9.1\")); //0\n\n//clean\nconsole.log(compareVer.clean(['1.1.b','1.0.1',12121])); //['1.0.1']\n\nvar arr = [\"1.7.0\",\"1.7\",\"1.ab.8\",\"1.70.0\",\"1.90\",\"1.9.0\",\"1.8\"];\ncompareVer.sort(arr); //->[\"1.7\",\"1.7.0\",\"1.8\",\"1.9.0\",\"1.70.0\",\"1.90\"]\ncompareVer.max(arr); //->\"1.90\"\ncompareVer.min(arr); //->\"1.7\"\n```\n\n## License\n\n[MIT License](http://en.wikipedia.org/wiki/MIT_License) © [lmtdit](https://github.com/lmtdit)\n\n## End.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/compare-ver/-/compare-ver-2.0.2.tgz#8ecb8eb9dbf23ff2d87c56e74cbbb2cb7ffd9d7a",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/compare-ver/-/compare-ver-2.0.2.tgz",
+    "hash": "8ecb8eb9dbf23ff2d87c56e74cbbb2cb7ffd9d7a",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "8ecb8eb9dbf23ff2d87c56e74cbbb2cb7ffd9d7a"
+}

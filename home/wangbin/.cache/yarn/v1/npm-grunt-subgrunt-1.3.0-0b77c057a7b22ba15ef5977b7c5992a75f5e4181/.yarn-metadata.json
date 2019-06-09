@@ -1,0 +1,70 @@
+{
+  "manifest": {
+    "name": "grunt-subgrunt",
+    "version": "1.3.0",
+    "description": "Run sub-projects' grunt tasks.",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/tusbar/grunt-subgrunt.git"
+    },
+    "scripts": {
+      "test": "eslint . && grunt test"
+    },
+    "keywords": [
+      "gruntplugin",
+      "subgrunt",
+      "subproject",
+      "submodule"
+    ],
+    "author": {
+      "name": "Bertrand Marron",
+      "url": "https://github.com/tusbar"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/tusbar/grunt-subgrunt/issues"
+    },
+    "dependencies": {
+      "async": "^2.1.2",
+      "glob": "^7.0.0"
+    },
+    "engines": {
+      "node": ">= 4",
+      "npm": ">= 3"
+    },
+    "eslintConfig": {
+      "extends": "xo-space",
+      "rules": {
+        "semi": [
+          "error",
+          "never"
+        ]
+      }
+    },
+    "eslintIgnore": [
+      "**/node_modules/**"
+    ],
+    "devDependencies": {
+      "eslint": "^4.13.0",
+      "eslint-config-xo-space": "^0.17.0",
+      "grunt": "^1.0.1",
+      "grunt-contrib-clean": "^1.0.0",
+      "grunt-contrib-nodeunit": "^1.0.0",
+      "load-grunt-tasks": "^3.4.1"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-grunt-subgrunt-1.3.0-0b77c057a7b22ba15ef5977b7c5992a75f5e4181/package.json",
+    "readmeFilename": "readme.md",
+    "readme": "# grunt-subgrunt [![Circle CI](https://circleci.com/gh/tusbar/grunt-subgrunt.svg?style=svg)](https://circleci.com/gh/tusbar/grunt-subgrunt)\n\n[![npm version](https://img.shields.io/npm/v/grunt-subgrunt.svg)](https://www.npmjs.com/package/grunt-subgrunt)\n[![Travis](https://secure.travis-ci.org/tusbar/grunt-subgrunt.svg?branch=master)](https://travis-ci.org/tusbar/grunt-subgrunt)\n[![Dependencies Status](https://david-dm.org/tusbar/grunt-subgrunt.svg)](https://david-dm.org/tusbar/grunt-subgrunt)\n[![Dev Dependencies Status](https://david-dm.org/tusbar/grunt-subgrunt/dev-status.svg)](https://david-dm.org/tusbar/grunt-subgrunt#info=devDependencies)\n[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)\n\n> Run sub-projects' grunt tasks.\n> This plugin was inspired by https://gist.github.com/cowboy/3819170.\n\n## Getting started\n\nIf you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-subgrunt --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks('grunt-subgrunt');\n```\n\n## Release notes\n\nFor change logs and release notes, see the [changelog](https://github.com/tusbar/grunt-subgrunt/blob/master/changelog.md) file.\n\n## The \"subgrunt\" task\n\n### Overview\nIn your project's Gruntfile, add a section named `subgrunt` to the data object passed into `grunt.initConfig()`.\n\n```js\ngrunt.initConfig({\n  subgrunt: {\n    options: {\n      // Task-specific options go here.\n    },\n    your_target: {\n      options: {\n        // Target-specific options\n      },\n      projects: {\n        // Paths to sub-projects' gruntfiles\n      }\n    },\n  },\n})\n```\n\n### Options\n\n#### options.npmInstall\nType: `bool`  \nDefault value: `true`\n\nDetermines wether `npm install` will be ran for the sub-project (thus installing dev dependencies).\n\n#### options.npmClean\nType: `bool`  \nDefault value: `false`  \n*Requires npm >= 1.3.10*\n\nWhen enabled, runs `npm prune --production` to clean development dependencies.\n\n#### options.npmPath\nType: `string`  \nDefault value: `'npm'`\n\nThe location of the `npm` executable. Defaults to `'npm'` as it should be available in the `$PATH` environment variable.\n\n#### options.passGruntFlags\nType: `bool`  \nDefault value: `true`  \n\nWhen enabled, passes the grunt.options thru to the subgrunt task.\n\n#### options.limit\nType: `Number`  \nDefault value: Number of CPU cores (`require('os').cpus().length`) with a minimum of 2\n\nLimit how many sub-grunt projects are launched concurrently.\n\n\n### Usage examples\n\n```js\ngrunt.initConfig({\n  subgrunt: {\n    target0: {\n      projects: {\n        // For each of these projects, the specified grunt task will be executed:\n        'node_modules/module1': 'default',\n        'node_modules/module2': 'bower:install'\n      }\n    },\n    target1: {\n      // Without target-specific options, the projects object is optional:\n      'node_modules/module1': 'default',\n      'node_modules/module2': 'bower:install'\n    },\n    target2: {\n      // Use an array to run multiple tasks:\n      'node_modules/module1': [ 'clean', 'test' ]\n    },\n    target3: {\n      // you can use this array to add parameters:\n      'node_modules/module1': [ 'clean', '--myParam=\"foobar\"', '--verbose' ]\n    },\n    target4: [\n      // Using an array will just execute the 'default' grunt task:\n      'node_modules/module3',\n      'node_modules/module4'\n    ],\n    target5: {\n      // npm install will not be ran for this target:\n      options: {\n        npmInstall: false\n      },\n      projects: {\n        'sub-projects/my-awesome-module': 'build:dist'\n      }\n    },\n    target6: {\n      // The npm devDependencies will be cleaned out after running the grunt tasks.\n      options: {\n        npmClean: true\n      },\n      projects: {\n        'node_modules/module1': [ 'preprocess', 'build' ]\n      }\n    },\n    target7: {\n      // grunt option flags will not be passed to the subgrunts\n      options: {\n        passGruntFlags: false\n      },\n      projects: {\n        'baz': [ 'foo', 'bar' ]\n      }\n    }\n  }\n})\n```\n\n## Contributing\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).\n\n```\n    ╚⊙ ⊙╝\n  ╚═(███)═╝\n ╚═(███)═╝\n╚═(███)═╝\n ╚═(███)═╝\n  ╚═(███)═╝\n   ╚═(███)═╝\n```\n\n![MIT](https://img.shields.io/badge/licence-MIT-blue.svg)\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/grunt-subgrunt/-/grunt-subgrunt-1.3.0.tgz#0b77c057a7b22ba15ef5977b7c5992a75f5e4181",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/grunt-subgrunt/-/grunt-subgrunt-1.3.0.tgz",
+    "hash": "0b77c057a7b22ba15ef5977b7c5992a75f5e4181",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "0b77c057a7b22ba15ef5977b7c5992a75f5e4181"
+}

@@ -1,0 +1,45 @@
+{
+  "manifest": {
+    "name": "expand-template",
+    "version": "1.1.0",
+    "description": "Expand placeholders in a template string",
+    "main": "index.js",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ralphtheninja/expand-template.git"
+    },
+    "homepage": "https://github.com/ralphtheninja/expand-template",
+    "scripts": {
+      "test": "tape test.js && standard"
+    },
+    "keywords": [
+      "template",
+      "expand",
+      "replace"
+    ],
+    "author": {
+      "name": "LM",
+      "email": "ralphtheninja@riseup.net"
+    },
+    "license": "WTFPL",
+    "dependencies": {},
+    "devDependencies": {
+      "standard": "^10.0.3",
+      "tape": "^4.2.2"
+    },
+    "_registry": "npm",
+    "_loc": "/home/wangbin/.cache/yarn/v1/npm-expand-template-1.1.0-e09efba977bf98f9ee0ed25abd0c692e02aec3fc/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# expand-template\n\n> Expand placeholders in a template string.\n\n[![Build Status](https://travis-ci.org/ralphtheninja/expand-template.svg?branch=master)](https://travis-ci.org/ralphtheninja/expand-template)\n[![Greenkeeper badge](https://badges.greenkeeper.io/ralphtheninja/expand-template.svg)](https://greenkeeper.io/)\n\n## Install\n\n```\n$ npm i expand-template -S\n```\n\n## Usage\n\nDefault functionality expands templates using `{}` as separators for string placeholders.\n\n```js\nvar expand = require('expand-template')()\nvar template = '{foo}/{foo}/{bar}/{bar}'\nconsole.log(expand(template, {\n  foo: 'BAR',\n  bar: 'FOO'\n}))\n// -> BAR/BAR/FOO/FOO\n```\n\nCustom separators:\n\n```js\nvar expand = require('expand-template')({ sep: '[]' })\nvar template = '[foo]/[foo]/[bar]/[bar]'\nconsole.log(expand(template, {\n  foo: 'BAR',\n  bar: 'FOO'\n}))\n// -> BAR/BAR/FOO/FOO\n```\n\n## License\nAll code, unless stated otherwise, is dual-licensed under [`WTFPL`](http://www.wtfpl.net/txt/copying/) and [`MIT`](https://opensource.org/licenses/MIT).\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/expand-template/-/expand-template-1.1.0.tgz#e09efba977bf98f9ee0ed25abd0c692e02aec3fc",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/expand-template/-/expand-template-1.1.0.tgz",
+    "hash": "e09efba977bf98f9ee0ed25abd0c692e02aec3fc",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "e09efba977bf98f9ee0ed25abd0c692e02aec3fc"
+}
