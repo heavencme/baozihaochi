@@ -55,7 +55,7 @@
   "dependencies": {
     "bluebird": "^3.4.1",
     "ghost-ignition": "2.9.2",
-    "lodash": "4.17.10"
+    "lodash": "4.17.21"
   },
   "peerDependencies": {
     "bookshelf": ">=0.13.0"
