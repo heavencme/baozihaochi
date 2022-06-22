@@ -30,7 +30,7 @@
   "dependencies": {
     "async": "^2.1.4",
     "emits": "^3.0.0",
-    "got": "^7.1.0",
+    "got": "^11.8.5",
     "htmlparser2": "^3.9.2",
     "image-size": "0.6.1",
     "lodash": "^4.17.4",
